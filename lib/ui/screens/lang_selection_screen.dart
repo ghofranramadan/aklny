@@ -1,3 +1,4 @@
+import 'package:aklny/ui/screens/intro_screen.dart';
 import 'package:aklny/ui/screens/login_screen.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) {
-                          return LoginScreen();
+                          return IntroScreen();
                         },
                       ),
                     );
@@ -75,7 +76,7 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) {
-                          return LoginScreen();
+                          return IntroScreen();
                         },
                       ),
                     );

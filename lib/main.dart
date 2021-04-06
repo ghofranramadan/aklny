@@ -1,4 +1,3 @@
-import 'package:aklny/ui/screens/lang_selection_screen.dart';
 import 'package:aklny/ui/screens/splash_screen.dart';
 import 'package:aklny/utils/theme.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -35,7 +34,7 @@ class Aklny extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Aklny',
       theme: AklnyTheme().lightTheme,
-      home: LangSelectionScreen(),
+      home: SplashScreen(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,

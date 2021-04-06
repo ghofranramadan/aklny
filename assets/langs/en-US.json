@@ -1,1 +1,13 @@
-{}
+{
+  "skip": "Skip",
+  "next": "Next",
+  "login": "Login",
+  "create_an_account": "Create an Account",
+  "find_food_you_love": "Find Food You Love",
+  "fast_delivery": "Fast Delivery",
+  "live_tracking": "Live Tracking",
+  "tracking": "Real time tracking of your food on the app nonce you placed the order",
+  "delivery": "Fast food delivery to your home, office wherever you are",
+  "discover": "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
+
+}
