@@ -22,7 +22,11 @@
   "name": "Name",
   "continue_with":"Continue With",
   "continue_as_guest":"Continue As Guest",
-  "continue": "Continue"
+  "continue": "Continue",
+  "reset_password":"Reset Password",
+  "reset":"Please Enter Your Phone Number To Receive A Code To  Create A New Password",
+  "send": "Send"
+
 
 
 
