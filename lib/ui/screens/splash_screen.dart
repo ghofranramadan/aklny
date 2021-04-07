@@ -28,20 +28,25 @@ class _SplashScreenState extends State<SplashScreen> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             image: DecorationImage(
-              fit: BoxFit.fill,
+                fit: BoxFit.fill,
                 image: AssetImage("assets/images/Background icons.png"))),
-        child: Stack(
-          overflow: Overflow.visible,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/aklny_logo2.png'),
-            Positioned(
-                right: 0,
-                left: 140,
-                bottom: 30,
-                child: Text(
-                  'Food Delivery',
-                  style: Theme.of(context).textTheme.headline1,
-                )),
+            Image.asset(
+              'assets/images/aklny_logo1.png',
+              width: (MediaQuery.of(context).size.width * 200) / 375,
+              height: (MediaQuery.of(context).size.height * 170) / 812,
+              fit: BoxFit.fill,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Food Delivery',
+              style: Theme.of(context).textTheme.headline1,
+            ),
           ],
         ),
       ),

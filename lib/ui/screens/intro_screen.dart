@@ -60,7 +60,6 @@ class _IntroScreenState extends State<IntroScreen> {
                   )
                 : SizedBox(),
             Stack(
-              // alignment: Alignment.center,
               children: [
                 CarouselSlider.builder(
                   carouselController: buttonCarouselController,

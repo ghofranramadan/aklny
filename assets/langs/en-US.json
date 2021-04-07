@@ -8,6 +8,16 @@
   "live_tracking": "Live Tracking",
   "tracking": "Real time tracking of your food on the app nonce you placed the order",
   "delivery": "Fast food delivery to your home, office wherever you are",
-  "discover": "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
+  "discover": "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep",
+  "phone_no": "Phone Number",
+  "password": "Password",
+  "remember_me": "Remember Me",
+  "forgot_password": "Forgot Password ?",
+  "login_with_facebook": "Login with Facebook",
+  "login_with_google": "Login with Google",
+  "don't_have_an_account":"Don't have an Account?",
+  "email": "Email"
+
+
 
 }

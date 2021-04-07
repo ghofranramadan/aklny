@@ -56,14 +56,12 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
                     height: (MediaQuery.of(context).size.height * 53) / 812,
                     width: (MediaQuery.of(context).size.width * 258) / 375,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).buttonColor,
-                      borderRadius: BorderRadius.circular(16.5),
+                      color: Theme.of(context).primaryColor.withOpacity(0.65),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                     child: Text(
                       'START',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline1
+                      style: Theme.of(context).textTheme.headline3
                           .copyWith(fontSize: 24, fontFamily: 'SF UI Display'),
                     ),
                   ),
@@ -89,12 +87,12 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
                     height: (MediaQuery.of(context).size.height * 53) / 812,
                     width: (MediaQuery.of(context).size.width * 258) / 375,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).buttonColor,
-                      borderRadius: BorderRadius.circular(16.5),
+                      color: Theme.of(context).primaryColor.withOpacity(0.65),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                     child: Text(
                       'إبدأ',
-                      style: Theme.of(context).textTheme.headline1.copyWith(
+                      style: Theme.of(context).textTheme.headline3.copyWith(
                           fontFamily: 'Almarai',
                           fontSize: 27,
                           fontWeight: FontWeight.w700),
@@ -108,7 +106,7 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
         Positioned(
           right: 0,
           left: 0,
-          top:MediaQuery.of(context).size.height * 0.37 ,
+          top: MediaQuery.of(context).size.height * 0.37,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -129,7 +127,6 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
           ),
         )
       ],
-    )
-        );
+    ));
   }
 }
