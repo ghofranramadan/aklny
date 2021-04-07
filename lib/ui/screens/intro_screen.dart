@@ -123,63 +123,93 @@ class _IntroScreenState extends State<IntroScreen> {
                           style: Theme.of(context).textTheme.headline3),
                     ),
                   )
-                : Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return LoginScreen();
-                            },
-                          ),
-                        ),
-                        behavior: HitTestBehavior.opaque,
-                        child: Container(
-                          alignment: Alignment.center,
-                          margin: EdgeInsets.only(
-                            bottom:
-                                (MediaQuery.of(context).size.height * 20) / 812,
-                          ),
-                          height:
-                              (MediaQuery.of(context).size.height * 53) / 812,
-                          width:
-                              (MediaQuery.of(context).size.width * 258) / 375,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context)
-                                .primaryColor
-                                .withOpacity(0.65),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          child: Text(tr('login'),
-                              style: Theme.of(context).textTheme.headline3),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return CreateAccountScreen();
-                            },
-                          ),
-                        ),
-                        behavior: HitTestBehavior.opaque,
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom:
-                                (MediaQuery.of(context).size.height * 20) / 812,
-                          ),
-                          alignment: Alignment.center,
-                          height:
-                              (MediaQuery.of(context).size.height * 30) / 812,
-                          width:
-                              (MediaQuery.of(context).size.width * 258) / 375,
-                          decoration: BoxDecoration(),
-                          child: Text(tr('create_an_account'),
-                              style: Theme.of(context).textTheme.headline4),
-                        ),
-                      )
-                    ],
-                  ),
+                :                       GestureDetector(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return LoginScreen();
+                  },
+                ),
+              ),
+              behavior: HitTestBehavior.opaque,
+              child: Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(
+                  bottom:
+                  (MediaQuery.of(context).size.height * 20) / 812,
+                ),
+                height:
+                (MediaQuery.of(context).size.height * 53) / 812,
+                width:
+                (MediaQuery.of(context).size.width * 258) / 375,
+                decoration: BoxDecoration(
+                  color: Theme.of(context)
+                      .primaryColor
+                      .withOpacity(0.65),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: Text(tr('continue'),
+                    style: Theme.of(context).textTheme.headline3),
+              ),
+            ),
+
+            // Column(
+            //         children: [
+            //           GestureDetector(
+            //             onTap: () => Navigator.of(context).push(
+            //               MaterialPageRoute(
+            //                 builder: (context) {
+            //                   return LoginScreen();
+            //                 },
+            //               ),
+            //             ),
+            //             behavior: HitTestBehavior.opaque,
+            //             child: Container(
+            //               alignment: Alignment.center,
+            //               margin: EdgeInsets.only(
+            //                 bottom:
+            //                     (MediaQuery.of(context).size.height * 20) / 812,
+            //               ),
+            //               height:
+            //                   (MediaQuery.of(context).size.height * 53) / 812,
+            //               width:
+            //                   (MediaQuery.of(context).size.width * 258) / 375,
+            //               decoration: BoxDecoration(
+            //                 color: Theme.of(context)
+            //                     .primaryColor
+            //                     .withOpacity(0.65),
+            //                 borderRadius: BorderRadius.circular(25),
+            //               ),
+            //               child: Text(tr('login'),
+            //                   style: Theme.of(context).textTheme.headline3),
+            //             ),
+            //           ),
+            //           GestureDetector(
+            //             onTap: () => Navigator.of(context).push(
+            //               MaterialPageRoute(
+            //                 builder: (context) {
+            //                   return CreateAccountScreen();
+            //                 },
+            //               ),
+            //             ),
+            //             behavior: HitTestBehavior.opaque,
+            //             child: Container(
+            //               margin: EdgeInsets.only(
+            //                 bottom:
+            //                     (MediaQuery.of(context).size.height * 20) / 812,
+            //               ),
+            //               alignment: Alignment.center,
+            //               height:
+            //                   (MediaQuery.of(context).size.height * 30) / 812,
+            //               width:
+            //                   (MediaQuery.of(context).size.width * 258) / 375,
+            //               decoration: BoxDecoration(),
+            //               child: Text(tr('create_an_account'),
+            //                   style: Theme.of(context).textTheme.headline4),
+            //             ),
+            //           )
+            //         ],
+            //       ),
           ],
         ),
       ),

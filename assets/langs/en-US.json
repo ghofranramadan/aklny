@@ -2,7 +2,7 @@
   "skip": "Skip",
   "next": "Next",
   "login": "Login",
-  "create_an_account": "Create an Account",
+  "create_an_account": "Create An Account",
   "find_food_you_love": "Find Food You Love",
   "fast_delivery": "Fast Delivery",
   "live_tracking": "Live Tracking",
@@ -11,12 +11,18 @@
   "discover": "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep",
   "phone_no": "Phone Number",
   "password": "Password",
+  "confirm_password": "Confirm Password",
   "remember_me": "Remember Me",
   "forgot_password": "Forgot Password ?",
   "login_with_facebook": "Login with Facebook",
   "login_with_google": "Login with Google",
   "don't_have_an_account":"Don't have an Account?",
-  "email": "Email"
+  "i_have_an_account":"I have an Account",
+  "email": "Email",
+  "name": "Name",
+  "continue_with":"Continue With",
+  "continue_as_guest":"Continue As Guest",
+  "continue": "Continue"
 
 
 

@@ -1,6 +1,6 @@
 import 'package:aklny/ui/screens/intro_screen.dart';
-import 'package:aklny/ui/screens/login_screen.dart';
 import 'package:aklny/utils/vars.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shadow/shadow.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -35,7 +35,8 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
             ),
             Column(
               children: [
-                InkWell(
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
                   onTap: () {
                     GetLAng.lang = 'en_US';
                     if (mounted) setState(() {});
@@ -60,13 +61,16 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: Text(
-                      'START',
-                      style: Theme.of(context).textTheme.headline3
+                      'English',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline3
                           .copyWith(fontSize: 24, fontFamily: 'SF UI Display'),
                     ),
                   ),
                 ),
-                InkWell(
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
                   onTap: () {
                     GetLAng.lang = 'ar_EG';
                     if (mounted) setState(() {});
@@ -91,7 +95,7 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: Text(
-                      'إبدأ',
+                      'العربيه',
                       style: Theme.of(context).textTheme.headline3.copyWith(
                           fontFamily: 'Almarai',
                           fontSize: 27,
@@ -117,11 +121,23 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
                 fit: BoxFit.fill,
               ),
               SizedBox(
-                height: 30,
+                height: 10,
               ),
               Text(
                 'Food Delivery',
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headline1.copyWith(
+                      fontSize: 14,
+                    ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                'Select Your Language',
+                style: Theme.of(context).textTheme.headline2.copyWith(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 22,
+                    ),
               ),
             ],
           ),

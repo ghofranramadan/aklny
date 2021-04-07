@@ -11,12 +11,18 @@
   "discover":"اكتشف معنا افضل الطعام من خلال ما يزيد عن 1000 مطعم و تطبيق توصيل طعام الي باب البيت",
   "phone_no":"قم الهاتف",
   "password": "كلمه السر",
+  "confirm_password":"تأكيد كلمه السر",
   "remember_me":"تذكرني",
   "forgot_password":"هل نسيت كلمه السر ؟",
   "login_with_facebook": "سجل الدخول بالفيس بوك",
   "login_with_google": "سجل الدخول بجوجل",
   "don't_have_an_account":"ليس لديك حساب ؟",
-  "email": "البريد الالكتروني"
+  "i_have_an_account":"لدي حساب",
+  "email": "البريد الالكتروني",
+  "name":"الاسم",
+  "continue_with": "تابع بواسطه",
+  "continue_as_guest":"تابع كزائر",
+  "continue": "استمرار"
 
 
 

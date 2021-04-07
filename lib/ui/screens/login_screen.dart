@@ -14,7 +14,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   String pass;
-  String email;
+  String phoneNo;
   bool showPass = true;
   bool rememberMe = false;
 
@@ -63,10 +63,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                   ),
                   SizedBox(
-                    height: 65,
+                    height: 55,
                   ),
                   Text(
-                    tr('email'),
+                    tr('phone_no'),
                     style: Theme.of(context).textTheme.headline2.copyWith(
                           fontWeight: FontWeight.w700,
                           fontSize: 13,
@@ -78,19 +78,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextFormField(
                     onSaved: (value) {
                       setState(() {
-                        email = value;
+                        phoneNo = value;
                       });
                     },
                     onChanged: (value) {
                       setState(() {
-                        email = value;
+                        phoneNo = value;
                       });
                     },
                     style: Theme.of(context).textTheme.headline1.copyWith(
                           fontSize: 14,
                         ),
                     decoration: InputDecoration(
-                      hintText: tr('email'),
+                      hintText: tr('phone_no'),
                       hintStyle: Theme.of(context).textTheme.headline5,
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
@@ -155,7 +155,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           setState(() => showPass = true);
                         },
                         child: Container(
-                          padding: EdgeInsets.only(right: 17),
+                          padding: EdgeInsets.only(
+                            right: GetLAng?.lang == 'en_US' ?? true ? 17 : 0,
+                            left: GetLAng?.lang == 'en_US' ?? true ? 0 : 17,
+                          ),
                           child: showPass == true
                               ? SvgPicture.asset(
                                   'assets/svg/private.svg',
@@ -195,9 +198,13 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 22 / 375,
-                left: MediaQuery.of(context).size.width * 10 / 375,
-                bottom: 50,
+                right: GetLAng?.lang == 'en_US' ?? true
+                    ? MediaQuery.of(context).size.width * 22 / 375
+                    : MediaQuery.of(context).size.width * 10 / 375,
+                left: GetLAng?.lang == 'en_US' ?? true
+                    ? MediaQuery.of(context).size.width * 10 / 375
+                    : MediaQuery.of(context).size.width * 22 / 375,
+                bottom: 35,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -245,6 +252,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
+            //////
             GestureDetector(
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(
@@ -269,77 +277,162 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: Theme.of(context).textTheme.headline3),
               ),
             ),
-            GestureDetector(
-              // onTap: () => loginWithGoogle(context),
-              behavior: HitTestBehavior.opaque,
-              child: Container(
-                height: (MediaQuery.of(context).size.height * 53) / 812,
-                width: (MediaQuery.of(context).size.width * 258) / 375,
-                margin: EdgeInsets.only(
-                  bottom: (MediaQuery.of(context).size.height * 20) / 812,
-                ),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(
-                    color: Theme.of(context).hintColor,
+
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 22 / 375,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          height: 10,
+                          color: Theme.of(context).shadowColor.withOpacity(0.5),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        tr("continue_with"),
+                        style: Theme.of(context).textTheme.headline5.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                            ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: Divider(
+                          height: 10,
+                          color: Theme.of(context).shadowColor.withOpacity(0.5),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svg/Icons-icon-google.svg',
-                    ),
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width * 25) / 375,
-                    ),
-                    Text(tr('login_with_google'),
-                        style: Theme.of(context).textTheme.bodyText1),
-                  ],
-                ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        // onTap: () => loginWithGoogle(context),
+                        behavior: HitTestBehavior.opaque,
+                        child: Container(
+                          height:
+                              (MediaQuery.of(context).size.height * 53) / 812,
+                          width:
+                              (MediaQuery.of(context).size.width * 160) / 375,
+                          margin: EdgeInsets.only(
+                            bottom:
+                                (MediaQuery.of(context).size.height * 20) / 812,
+                          ),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                              color: Theme.of(context).hintColor,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg/Icons-icon-google.svg',
+                              ),
+                              SizedBox(
+                                width:
+                                    (MediaQuery.of(context).size.width * 10) /
+                                        375,
+                              ),
+                              Text(
+                                tr('login_with_google'),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1
+                                    .copyWith(
+                                      fontWeight:
+                                          GetLAng?.lang == 'en_US' ?? true
+                                              ? FontWeight.w700
+                                              : FontWeight.w400,
+                                      fontSize: GetLAng?.lang == 'en_US' ?? true
+                                          ? 14
+                                          : 12,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        // onTap: () => loginWithFacebook(),
+                        behavior: HitTestBehavior.opaque,
+                        child: Container(
+                          height:
+                              (MediaQuery.of(context).size.height * 53) / 812,
+                          width:
+                              (MediaQuery.of(context).size.width * 160) / 375,
+                          margin: EdgeInsets.only(
+                            bottom:
+                                (MediaQuery.of(context).size.height * 20) / 812,
+                          ),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                              color: Theme.of(context).highlightColor,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/svg/Icons-icon-facebook.svg',
+                              ),
+                              SizedBox(
+                                width:
+                                    (MediaQuery.of(context).size.width * 10) /
+                                        375,
+                              ),
+                              Text(
+                                tr('login_with_facebook'),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText2
+                                    .copyWith(
+                                      fontWeight:
+                                          GetLAng?.lang == 'en_US' ?? true
+                                              ? FontWeight.w700
+                                              : FontWeight.w400,
+                                      fontSize: GetLAng?.lang == 'en_US' ?? true
+                                          ? 14
+                                          : 12,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            GestureDetector(
-              // onTap: () => loginWithFacebook(),
-              behavior: HitTestBehavior.opaque,
-              child: Container(
-                height: (MediaQuery.of(context).size.height * 53) / 812,
-                width: (MediaQuery.of(context).size.width * 258) / 375,
-                margin: EdgeInsets.only(
-                  bottom: (MediaQuery.of(context).size.height * 30) / 812,
-                ),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(
-                    color: Theme.of(context).highlightColor,
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      'assets/svg/Icons-icon-facebook.svg',
-                    ),
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width * 25) / 375,
-                    ),
-                    Text(tr('login_with_facebook'),
-                        style: Theme.of(context).textTheme.bodyText2),
-                  ],
-                ),
-              ),
-            ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(tr("don't_have_an_account"),
+                Text(
+                  tr("don't_have_an_account"),
                   style: Theme.of(context).textTheme.headline5.copyWith(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12,
-
-                  ),),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                      ),
+                ),
                 SizedBox(
                   width: (MediaQuery.of(context).size.width * 4) / 375,
                 ),
@@ -354,15 +447,35 @@ class _LoginScreenState extends State<LoginScreen> {
                     );
                   },
                   behavior: HitTestBehavior.opaque,
-                  child: Text(tr('create_an_account'),
+                  child: Text(
+                    tr('create_an_account'),
                     style: Theme.of(context).textTheme.headline4.copyWith(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 12,
-                    ),),
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
+                        ),
+                  ),
                 ),
               ],
             ),
-
+            SizedBox(
+              height: 15,
+            ),
+            InkWell(
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return MainScreen();
+                  },
+                ),
+              ),
+              child: Text(
+                tr('continue_as_guest'),
+                style: Theme.of(context).textTheme.headline2.copyWith(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                    ),
+              ),
+            ),
           ],
         ),
       ),
