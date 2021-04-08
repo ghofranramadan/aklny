@@ -12,6 +12,7 @@
   "phone_no": "Phone Number",
   "password": "Password",
   "confirm_password": "Confirm Password",
+  "confirm_new_password": "Confirm New Password",
   "remember_me": "Remember Me",
   "forgot_password": "Forgot Password ?",
   "login_with_facebook": "Login with Facebook",
@@ -29,7 +30,10 @@
   "sent_otp": "We have sent an OTP to your Mobile",
   "check_number": "Please check your mobile number 012*****129 continue to reset your password",
   "code_not_been_sent": "OTP code hasn't been sent ?",
-  "send_another_one": "Send Another Code"
+  "send_another_one": "Send Another Code",
+  "new_Password": "New Password",
+  "enter_your_new_password": "Please Enter Your New Password , And It Must Be Different From  Your Previous Password",
+  "save": "Save"
 
 
 

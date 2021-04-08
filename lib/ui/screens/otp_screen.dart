@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:aklny/ui/screens/new_pass_screen.dart';
 import 'package:aklny/ui/widgets/otp_form.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:flutter/material.dart';
@@ -175,13 +176,13 @@ class _OtpScreenState extends State<OtpScreen> {
                   Align(
                     alignment: Alignment.center,
                     child: GestureDetector(
-                      // onTap: () => Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) {
-                      //       return ();
-                      //     },
-                      //   ),
-                      // ),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return NewPassScreen();
+                          },
+                        ),
+                      ),
                       behavior: HitTestBehavior.opaque,
                       child: Container(
                         alignment: Alignment.center,
