@@ -100,6 +100,7 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                     style: Theme.of(context).textTheme.headline1.copyWith(
                           fontSize: 14,
                         ),
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       hintText: tr('phone_no'),
                       hintStyle: Theme.of(context).textTheme.headline5,

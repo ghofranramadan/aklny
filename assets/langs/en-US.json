@@ -25,8 +25,11 @@
   "continue": "Continue",
   "reset_password":"Reset Password",
   "reset":"Please Enter Your Phone Number To Receive A Code To  Create A New Password",
-  "send": "Send"
-
+  "send": "Send",
+  "sent_otp": "We have sent an OTP to your Mobile",
+  "check_number": "Please check your mobile number 012*****129 continue to reset your password",
+  "code_not_been_sent": "OTP code hasn't been sent ?",
+  "send_another_one": "Send Another Code"
 
 
 

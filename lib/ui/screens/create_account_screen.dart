@@ -187,6 +187,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               style: Theme.of(context).textTheme.headline1.copyWith(
                     fontSize: 14,
                   ),
+              keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                 hintText: tr('phone_no'),
                 hintStyle: Theme.of(context).textTheme.headline5,
@@ -367,7 +368,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             ),
             //////////////
             SizedBox(
-              height: 35,
+              height: 28,
             ),
             Align(
               alignment: Alignment.center,
@@ -429,7 +430,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 18,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -564,7 +565,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               ],
             ),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Align(
               alignment: Alignment.center,
