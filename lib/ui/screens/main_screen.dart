@@ -3,6 +3,7 @@ import 'package:aklny/ui/screens/categories_screen.dart';
 import 'package:aklny/ui/screens/home_screen.dart';
 import 'package:aklny/ui/screens/offers_screen.dart';
 import 'package:aklny/ui/screens/profile_screen.dart';
+import 'package:aklny/ui/widgets/buttom_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -52,159 +53,31 @@ class _MainScreenState extends State<MainScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: () {
-                      selectedTab(0);
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          'assets/svg/house.svg',
-                          width: 24,
-                          height: 24,
-                          color: selectedIndex == 0
-                              ? Theme.of(context).indicatorColor
-                              : Theme.of(context).shadowColor,
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Home',
-                          style: selectedIndex == 0
-                              ? Theme.of(context).textTheme.headline3.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                  )
-                              : Theme.of(context).textTheme.headline1.copyWith(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
+                  BottomWidget(
+                    svgPic: 'assets/svg/house.svg',
+                    title: 'Home',
+                    onTap: () => selectedTab(0),
+                    selected: selectedIndex == 0 ? true : false,
                   ),
-                  Padding(
+                  BottomWidget(
+                    svgPic: 'assets/svg/categories.svg',
+                    title: 'Categories',
+                    onTap: () => selectedTab(1),
+                    selected: selectedIndex == 1 ? true : false,
                     padding: EdgeInsets.only(right: 30),
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () {
-                        selectedTab(1);
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          SvgPicture.asset(
-                            'assets/svg/categories.svg',
-                            width: 24,
-                            height: 24,
-                            color: selectedIndex == 1
-                                ? Theme.of(context).indicatorColor
-                                : Theme.of(context).shadowColor,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'Categories',
-                            style: selectedIndex == 1
-                                ? Theme.of(context)
-                                    .textTheme
-                                    .headline3
-                                    .copyWith(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 12,
-                                    )
-                                : Theme.of(context)
-                                    .textTheme
-                                    .headline1
-                                    .copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ),
-                  Padding(
+                  BottomWidget(
+                    svgPic: 'assets/svg/shopping-bag.svg',
+                    title: 'Offers',
+                    onTap: () => selectedTab(3),
+                    selected: selectedIndex == 3 ? true : false,
                     padding: EdgeInsets.only(left: 30),
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () {
-                        selectedTab(3);
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          SvgPicture.asset(
-                            'assets/svg/shopping-bag.svg',
-                            width: 24,
-                            height: 24,
-                            color: selectedIndex == 3
-                                ? Theme.of(context).indicatorColor
-                                : Theme.of(context).shadowColor,
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'Offers',
-                            style: selectedIndex == 3
-                                ? Theme.of(context)
-                                    .textTheme
-                                    .headline3
-                                    .copyWith(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 12,
-                                    )
-                                : Theme.of(context)
-                                    .textTheme
-                                    .headline1
-                                    .copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ),
-                  GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: () {
-                      selectedTab(4);
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          'assets/svg/avatar.svg',
-                          width: 24,
-                          height: 24,
-                          color: selectedIndex == 4
-                              ? Theme.of(context).indicatorColor
-                              : Theme.of(context).shadowColor,
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Profile',
-                          style: selectedIndex == 4
-                              ? Theme.of(context).textTheme.headline3.copyWith(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                  )
-                              : Theme.of(context).textTheme.headline1.copyWith(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
+                  BottomWidget(
+                    svgPic: 'assets/svg/avatar.svg',
+                    title: 'Profile',
+                    onTap: () => selectedTab(4),
+                    selected: selectedIndex == 4 ? true : false,
                   ),
                 ],
               ),
