@@ -142,7 +142,9 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                       onTap: () => Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) {
-                            return OtpScreen();
+                            return OtpScreen(
+                              createAccount: false,
+                            );
                           },
                         ),
                       ),

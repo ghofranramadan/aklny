@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:aklny/ui/screens/main_screen.dart';
 import 'package:aklny/ui/screens/new_pass_screen.dart';
 import 'package:aklny/ui/widgets/otp_form.dart';
 import 'package:aklny/utils/vars.dart';
@@ -9,6 +10,8 @@ import 'dart:math' as math;
 import 'package:easy_localization/easy_localization.dart';
 
 class OtpScreen extends StatefulWidget {
+  final bool createAccount;
+  OtpScreen({@required this.createAccount});
   @override
   _OtpScreenState createState() => _OtpScreenState();
 }
@@ -176,13 +179,21 @@ class _OtpScreenState extends State<OtpScreen> {
                   Align(
                     alignment: Alignment.center,
                     child: GestureDetector(
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return NewPassScreen();
-                          },
-                        ),
-                      ),
+                      onTap: widget.createAccount == true
+                          ? () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return MainScreen();
+                                  },
+                                ),
+                              )
+                          : () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return NewPassScreen();
+                                  },
+                                ),
+                              ),
                       behavior: HitTestBehavior.opaque,
                       child: Container(
                         alignment: Alignment.center,

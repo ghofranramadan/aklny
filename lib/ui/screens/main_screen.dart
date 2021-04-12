@@ -4,10 +4,12 @@ import 'package:aklny/ui/screens/home_screen.dart';
 import 'package:aklny/ui/screens/offers_screen.dart';
 import 'package:aklny/ui/screens/profile_screen.dart';
 import 'package:aklny/ui/widgets/buttom_widget.dart';
+import 'package:aklny/utils/vars.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shadow/shadow.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -55,27 +57,32 @@ class _MainScreenState extends State<MainScreen> {
                 children: <Widget>[
                   BottomWidget(
                     svgPic: 'assets/svg/house.svg',
-                    title: 'Home',
+                    title: tr('home'),
                     onTap: () => selectedTab(0),
                     selected: selectedIndex == 0 ? true : false,
                   ),
                   BottomWidget(
                     svgPic: 'assets/svg/categories.svg',
-                    title: 'Categories',
+                    title: tr('categories'),
                     onTap: () => selectedTab(1),
                     selected: selectedIndex == 1 ? true : false,
-                    padding: EdgeInsets.only(right: 30),
+                    padding: EdgeInsets.only(
+                      right: GetLAng?.lang == 'en_US' ?? true ? 30 : 40,
+                    ),
                   ),
                   BottomWidget(
                     svgPic: 'assets/svg/shopping-bag.svg',
-                    title: 'Offers',
+                    title: tr('offers'),
                     onTap: () => selectedTab(3),
                     selected: selectedIndex == 3 ? true : false,
-                    padding: EdgeInsets.only(left: 30),
+                    padding: EdgeInsets.only(
+                      left: GetLAng?.lang == 'en_US' ?? true ? 30 : 0,
+                      right: GetLAng?.lang == 'en_US' ?? true ? 0 : 80,
+                    ),
                   ),
                   BottomWidget(
                     svgPic: 'assets/svg/avatar.svg',
-                    title: 'Profile',
+                    title: tr('profile'),
                     onTap: () => selectedTab(4),
                     selected: selectedIndex == 4 ? true : false,
                   ),

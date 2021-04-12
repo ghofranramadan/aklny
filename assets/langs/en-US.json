@@ -33,7 +33,11 @@
   "send_another_one": "Send Another Code",
   "new_Password": "New Password",
   "enter_your_new_password": "Please Enter Your New Password , And It Must Be Different From  Your Previous Password",
-  "save": "Save"
+  "save": "Save",
+  "home": "Home",
+  "categories":"Categories",
+  "offers": "Offers",
+  "profile": "Profile"
 
 
 

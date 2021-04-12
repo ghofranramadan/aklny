@@ -584,31 +584,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             )
           ],
-        )
-        // SingleChildScrollView(
-        //   padding: EdgeInsets.symmetric(
-        //     vertical: MediaQuery.of(context).size.height * 35 / 812,
-        //   ),
-        //   child: Column(
-        //     children: [
-        //       // Padding(
-        //       //   padding: EdgeInsets.symmetric(
-        //       //     horizontal: MediaQuery.of(context).size.width * 22 / 375,
-        //       //   ),
-        //       //   child: Column(
-        //       //     children: [
-        //       //
-        //       //
-        //       //       ////
-        //       //     ],
-        //       //   ),
-        //       // ),
-        //
-        //       //////
-        //
-        //     ],
-        //   ),
-        // ),
-        );
+        ));
   }
 }

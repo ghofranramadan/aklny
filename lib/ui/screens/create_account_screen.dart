@@ -1,5 +1,6 @@
 import 'package:aklny/ui/screens/login_screen.dart';
 import 'package:aklny/ui/screens/main_screen.dart';
+import 'package:aklny/ui/screens/otp_screen.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -376,7 +377,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
-                      return MainScreen();
+                      return OtpScreen(
+                        createAccount: true,
+                      );
                     },
                   ),
                 ),

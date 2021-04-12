@@ -97,7 +97,7 @@ class _LangSelectionScreenState extends State<LangSelectionScreen> {
                     child: Text(
                       'العربيه',
                       style: Theme.of(context).textTheme.headline3.copyWith(
-                          fontFamily: 'Almarai',
+                          fontFamily: 'Tajawal',
                           fontSize: 27,
                           fontWeight: FontWeight.w700),
                     ),

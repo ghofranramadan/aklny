@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AklnyTheme {
   final ThemeData lightTheme = ThemeData(
-    fontFamily: GetLAng?.lang == 'en_US' ?? true ? 'SF UI Display' : 'Almarai',
+    fontFamily: GetLAng?.lang == 'en_US' ?? true ? 'SF UI Display' : 'Tajawal',
     brightness: Brightness.light,
     backgroundColor: Color(0xFFFFFFFF),
     primaryColor: Color(0xFFFC6011),
@@ -51,7 +51,7 @@ class AklnyTheme {
     ),
   );
   final ThemeData darkTheme = ThemeData(
-    fontFamily: GetLAng?.lang == 'en_US' ?? true ? 'SF UI Display' : 'Almarai',
+    fontFamily: GetLAng?.lang == 'en_US' ?? true ? 'SF UI Display' : 'Tajawal',
     brightness: Brightness.dark,
     backgroundColor: Color(0xFF000000),
     textTheme: TextTheme(),
