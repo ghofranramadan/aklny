@@ -42,16 +42,11 @@ class _MainScreenState extends State<MainScreen> {
         width: size.width,
         height: 80,
         child: Stack(
-          overflow: Overflow.visible,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-              child: CustomPaint(
-                size: Size(size.width, 80),
-                painter: BNBCustomPainter(
-                  context: context,
-                ),
+            CustomPaint(
+              size: Size(size.width, 80),
+              painter: BNBCustomPainter(
+                context: context,
               ),
             ),
             Center(
@@ -97,7 +92,8 @@ class _MainScreenState extends State<MainScreen> {
                     onTap: () => selectedTab(1),
                     selected: selectedIndex == 1 ? true : false,
                     padding: EdgeInsets.only(
-                      right: GetLAng?.lang == 'en_US' ?? true ? 30 : 40,
+                      right: GetLAng?.lang == 'en_US' ?? true ? 100 : 40,
+                      left: GetLAng?.lang == 'en_US' ?? true ? 20 : 0,
                     ),
                   ),
                   BottomWidget(
@@ -106,8 +102,8 @@ class _MainScreenState extends State<MainScreen> {
                     onTap: () => selectedTab(3),
                     selected: selectedIndex == 3 ? true : false,
                     padding: EdgeInsets.only(
-                      left: GetLAng?.lang == 'en_US' ?? true ? 30 : 0,
-                      right: GetLAng?.lang == 'en_US' ?? true ? 0 : 80,
+                      left: GetLAng?.lang == 'en_US' ?? true ? 0 : 0,
+                      right: GetLAng?.lang == 'en_US' ?? true ? 40 : 80,
                     ),
                   ),
                   BottomWidget(
