@@ -12,6 +12,7 @@ class AklnyTheme {
     indicatorColor: Color(0xFFFFFFFF),
     highlightColor: Color(0xFF4267B2),
     hintColor: Color(0xFFDE4D3B),
+    cardColor: Color(0xFFF2F2F2),
     textTheme: TextTheme(
       headline1: TextStyle(
         color: Color(0xFF4A4B4D),
@@ -35,6 +36,11 @@ class AklnyTheme {
       ),
       headline5: TextStyle(
         color: Color(0xFF4A4B4D).withOpacity(0.5),
+        fontWeight: FontWeight.w500,
+        fontSize: 12,
+      ),
+      headline6: TextStyle(
+        color: Color(0xFFB6B7B7),
         fontWeight: FontWeight.w500,
         fontSize: 12,
       ),

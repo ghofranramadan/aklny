@@ -4,12 +4,11 @@ import 'package:aklny/ui/screens/home_screen.dart';
 import 'package:aklny/ui/screens/offers_screen.dart';
 import 'package:aklny/ui/screens/profile_screen.dart';
 import 'package:aklny/ui/widgets/buttom_widget.dart';
+import 'package:aklny/ui/widgets/custom_paint_shape.dart';
 import 'package:aklny/utils/vars.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shadow/shadow.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -36,25 +35,56 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      extendBody: true,
       body: _buildScreens[selectedIndex],
-      bottomNavigationBar: Shadow(
-        offset: Offset(0, -7),
-        opacity: 0.5,
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(16), topLeft: Radius.circular(16)),
-          child: BottomAppBar(
-            notchMargin: 10,
-            color: Theme.of(context).primaryColor.withOpacity(0.8),
-            shape: CircularNotchedRectangle(),
-            child: Container(
-              alignment: Alignment.center,
-              height: 60,
+      bottomNavigationBar: Container(
+        width: size.width,
+        height: 80,
+        child: Stack(
+          overflow: Overflow.visible,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
+              child: CustomPaint(
+                size: Size(size.width, 80),
+                painter: BNBCustomPainter(
+                  context: context,
+                ),
+              ),
+            ),
+            Center(
+              heightFactor: 0.45,
+              child: GestureDetector(
+                onTap: () {
+                  selectedTab(2);
+                },
+                behavior: HitTestBehavior.opaque,
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 70,
+                  width: 70,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Theme.of(context).primaryColor.withOpacity(0.8)),
+                  child: SvgPicture.asset(
+                    "assets/svg/shopping-cart.svg",
+                    color: selectedIndex == 2
+                        ? Theme.of(context).indicatorColor
+                        : Theme.of(context).shadowColor,
+                    width: 32,
+                    height: 32,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: size.width,
+              height: 80,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
+                children: [
                   BottomWidget(
                     svgPic: 'assets/svg/house.svg',
                     title: tr('home'),
@@ -81,40 +111,17 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   BottomWidget(
-                    svgPic: 'assets/svg/avatar.svg',
-                    title: tr('profile'),
+                    svgPic: 'assets/svg/indent.svg',
+                    title: tr('more'),
                     onTap: () => selectedTab(4),
                     selected: selectedIndex == 4 ? true : false,
                   ),
                 ],
               ),
-            ),
-          ),
+            )
+          ],
         ),
       ),
-      floatingActionButton: GestureDetector(
-        onTap: () {
-          selectedTab(2);
-        },
-        behavior: HitTestBehavior.opaque,
-        child: Container(
-          alignment: Alignment.center,
-          height: 72,
-          width: 72,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Theme.of(context).primaryColor.withOpacity(0.8)),
-          child: SvgPicture.asset(
-            "assets/svg/shopping-cart.svg",
-            color: selectedIndex == 2
-                ? Theme.of(context).indicatorColor
-                : Theme.of(context).shadowColor,
-            width: 32,
-            height: 32,
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
