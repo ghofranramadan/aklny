@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 // class BNBCustomPainter extends CustomPainter {
 //   final BuildContext context;
 //   BNBCustomPainter({this.context});
@@ -29,6 +27,8 @@ import 'package:flutter/material.dart';
 //     return false;
 //   }
 // }
+import 'package:flutter/material.dart';
+
 class BNBCustomPainter extends CustomPainter {
   final BuildContext context;
   BNBCustomPainter({this.context});
