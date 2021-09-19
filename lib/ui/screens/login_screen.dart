@@ -1,11 +1,12 @@
+import 'dart:math' as math;
+
 import 'package:aklny/ui/screens/create_account_screen.dart';
 import 'package:aklny/ui/screens/forgot_pass_screen.dart';
 import 'package:aklny/ui/screens/main_screen.dart';
 import 'package:aklny/utils/vars.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'dart:math' as math;
-import 'package:easy_localization/easy_localization.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -102,9 +103,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             filled: true,
                             isDense: true,
-                            focusColor: Theme.of(context).buttonColor,
-                            fillColor: Theme.of(context).buttonColor,
-                            hoverColor: Theme.of(context).buttonColor,
+                            focusColor: Theme.of(context).highlightColor,
+                            fillColor: Theme.of(context).highlightColor,
+                            hoverColor: Theme.of(context).highlightColor,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.circular(6),
@@ -182,9 +183,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             filled: true,
                             isDense: true,
-                            focusColor: Theme.of(context).buttonColor,
-                            fillColor: Theme.of(context).buttonColor,
-                            hoverColor: Theme.of(context).buttonColor,
+                            focusColor: Theme.of(context).highlightColor,
+                            fillColor: Theme.of(context).highlightColor,
+                            hoverColor: Theme.of(context).highlightColor,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.circular(6),
@@ -465,8 +466,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                             borderRadius:
                                                 BorderRadius.circular(25),
                                             border: Border.all(
-                                              color: Theme.of(context)
-                                                  .highlightColor,
+                                              color:
+                                                  Theme.of(context).buttonColor,
                                             ),
                                           ),
                                           child: Row(

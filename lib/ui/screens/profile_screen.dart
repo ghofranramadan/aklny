@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:drawerbehavior/drawerbehavior.dart';
+import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -66,11 +66,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return DrawerScaffold(
-
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Theme.of(context).buttonColor,
-        title: Text("Drawer - Scale",style: Theme.of(context).textTheme.headline1,),
+        backgroundColor: Theme.of(context).highlightColor,
+        title: Text(
+          "Drawer - Scale",
+          style: Theme.of(context).textTheme.headline1,
+        ),
       ),
       defaultDirection: Direction.right,
       cornerRadius: 0,
@@ -82,7 +84,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           percentage: 0.6,
           direction: Direction.right, // Drawer position, left or right
           animation: true,
-          color: Theme.of(context).buttonColor,
+          color: Theme.of(context).highlightColor,
           selectedItemId: selectedMenuItemId,
           onMenuItemSelected: (itemId) {
             setState(() {

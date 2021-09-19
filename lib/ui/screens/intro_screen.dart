@@ -1,10 +1,10 @@
-import 'package:aklny/ui/screens/create_account_screen.dart';
-import 'package:aklny/utils/vars.dart';
+import 'package:aklny/ui/widgets/onboarding_widget.dart';
+import 'package:aklny/utils/components.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+
 import 'login_screen.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -14,51 +14,60 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen> {
   CarouselController buttonCarouselController = CarouselController();
-
   List<Widget> welcome = [
-    FirstIntroWidget(),
-    SecondIntroWidget(),
-    ThirdIntroWidget()
+    OnBoarding(
+      picture: 'assets/svg/Find food you love vector.svg',
+      title: 'find_food_you_love',
+      subTitle: 'discover',
+    ),
+    OnBoarding(
+      picture: 'assets/svg/Delivery vector.svg',
+      title: 'fast_delivery',
+      subTitle: 'delivery',
+    ),
+    OnBoarding(
+      picture: 'assets/svg/Live tracking vector.svg',
+      title: 'live_tracking',
+      subTitle: 'tracking',
+    ),
   ];
   int indicatorIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: Padding(
         padding: EdgeInsets.only(
           top: (MediaQuery.of(context).size.height * 35) / 812,
         ),
-        color: Theme.of(context).backgroundColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            indicatorIndex == 0
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          buttonCarouselController.animateToPage(2);
+            if (indicatorIndex == 0)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LoginScreen();
                         },
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: (MediaQuery.of(context).size.width * 80) / 375,
-                          child: Text(
-                            tr('skip'),
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline1
-                                .copyWith(
-                                    fontSize: 20, fontWeight: FontWeight.w300),
-                          ),
-                        ),
                       ),
-                    ],
-                  )
-                : SizedBox(),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: (MediaQuery.of(context).size.width * 80) / 375,
+                      child: Text(
+                        tr('skip'),
+                        style: Theme.of(context).textTheme.headline1.copyWith(
+                            fontSize: 20, fontWeight: FontWeight.w300),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             Stack(
               children: [
                 CarouselSlider.builder(
@@ -91,7 +100,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     position: indicatorIndex.toDouble(),
                     decorator: DotsDecorator(
                       activeColor: Theme.of(context).primaryColor,
-                      color: Theme.of(context).buttonColor,
+                      color: Theme.of(context).highlightColor,
                       spacing: EdgeInsets.only(left: 6),
                       size: const Size.fromRadius(5.5),
                       activeSize: const Size(24, 5),
@@ -103,55 +112,26 @@ class _IntroScreenState extends State<IntroScreen> {
               ],
             ),
             indicatorIndex == 0 || indicatorIndex == 1
-                ? GestureDetector(
+                ? customButton(
+                    context: context,
                     onTap: () {
                       buttonCarouselController.nextPage();
                     },
-                    behavior: HitTestBehavior.opaque,
-                    child: Container(
-                      margin: EdgeInsets.only(
-                        bottom: (MediaQuery.of(context).size.height * 45) / 812,
-                      ),
-                      alignment: Alignment.center,
-                      height: (MediaQuery.of(context).size.height * 53) / 812,
-                      width: (MediaQuery.of(context).size.width * 258) / 375,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor.withOpacity(0.65),
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Text(tr('next'),
-                          style: Theme.of(context).textTheme.headline3),
-                    ),
+                    text: Text(tr('next'),
+                        style: Theme.of(context).textTheme.headline3),
                   )
-                :                       GestureDetector(
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return LoginScreen();
-                  },
-                ),
-              ),
-              behavior: HitTestBehavior.opaque,
-              child: Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(
-                  bottom:
-                  (MediaQuery.of(context).size.height * 20) / 812,
-                ),
-                height:
-                (MediaQuery.of(context).size.height * 53) / 812,
-                width:
-                (MediaQuery.of(context).size.width * 258) / 375,
-                decoration: BoxDecoration(
-                  color: Theme.of(context)
-                      .primaryColor
-                      .withOpacity(0.65),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Text(tr('continue'),
-                    style: Theme.of(context).textTheme.headline3),
-              ),
-            ),
+                : customButton(
+                    context: context,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LoginScreen();
+                        },
+                      ),
+                    ),
+                    text: Text(tr('continue'),
+                        style: Theme.of(context).textTheme.headline3),
+                  ),
 
             // Column(
             //         children: [
@@ -210,133 +190,12 @@ class _IntroScreenState extends State<IntroScreen> {
             //           )
             //         ],
             //       ),
+            SizedBox(
+              height: (MediaQuery.of(context).size.height * 20) / 812,
+            )
           ],
         ),
       ),
-    );
-  }
-}
-
-class FirstIntroWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SvgPicture.asset(
-          'assets/svg/Find food you love vector.svg',
-        ),
-        SizedBox(
-          height: (MediaQuery.of(context).size.height * 45) / 812,
-        ),
-        Text(
-          tr('find_food_you_love'),
-          style: Theme.of(context).textTheme.subtitle1.copyWith(
-              fontFamily: 'CopperplateGothic',
-              fontSize: 28,
-              fontWeight: FontWeight.w700),
-        ),
-        SizedBox(
-          height: (MediaQuery.of(context).size.height * 30) / 812,
-        ),
-        Container(
-          width: 275,
-          padding: EdgeInsets.symmetric(
-            horizontal: 40,
-          ),
-          child: Text(
-            tr('discover'),
-            style: Theme.of(context).textTheme.headline1.copyWith(
-                  fontSize: 10,
-                ),
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.clip,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class SecondIntroWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SvgPicture.asset(
-          'assets/svg/Delivery vector.svg',
-        ),
-        SizedBox(
-          height: (MediaQuery.of(context).size.height * 45) / 812,
-        ),
-        Text(
-          tr('fast_delivery'),
-          style: Theme.of(context).textTheme.subtitle1.copyWith(
-              fontFamily: 'CopperplateGothic',
-              fontSize: 28,
-              fontWeight: FontWeight.w700),
-        ),
-        SizedBox(
-          height: (MediaQuery.of(context).size.height * 30) / 812,
-        ),
-        Container(
-          width: 271,
-          padding: EdgeInsets.symmetric(
-            horizontal: 45,
-          ),
-          child: Text(
-            tr('delivery'),
-            style: Theme.of(context).textTheme.headline1.copyWith(
-                  fontSize: 10,
-                ),
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.clip,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class ThirdIntroWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SvgPicture.asset(
-          'assets/svg/Live tracking vector.svg',
-        ),
-        SizedBox(
-          height: (MediaQuery.of(context).size.height * 45) / 812,
-        ),
-        Text(
-          tr('live_tracking'),
-          style: Theme.of(context).textTheme.subtitle1.copyWith(
-              fontFamily: 'CopperplateGothic',
-              fontSize: 28,
-              fontWeight: FontWeight.w700),
-        ),
-        SizedBox(
-          height: (MediaQuery.of(context).size.height * 30) / 812,
-        ),
-        Container(
-          width: 271,
-          padding: EdgeInsets.symmetric(
-            horizontal: 45,
-          ),
-          child: Text(
-            tr('tracking'),
-            style: Theme.of(context).textTheme.headline1.copyWith(
-                  fontSize: 10,
-                ),
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.clip,
-          ),
-        ),
-      ],
     );
   }
 }

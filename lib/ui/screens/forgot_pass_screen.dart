@@ -1,9 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:aklny/ui/screens/otp_screen.dart';
 import 'package:aklny/utils/vars.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'dart:math' as math;
-import 'package:easy_localization/easy_localization.dart';
 
 class ForgotPassScreen extends StatefulWidget {
   @override
@@ -110,9 +111,9 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                       ),
                       filled: true,
                       isDense: true,
-                      focusColor: Theme.of(context).buttonColor,
-                      fillColor: Theme.of(context).buttonColor,
-                      hoverColor: Theme.of(context).buttonColor,
+                      focusColor: Theme.of(context).highlightColor,
+                      fillColor: Theme.of(context).highlightColor,
+                      hoverColor: Theme.of(context).highlightColor,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(6),
