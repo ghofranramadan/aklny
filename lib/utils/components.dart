@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 Widget customButton({
@@ -17,6 +18,47 @@ Widget customButton({
         borderRadius: BorderRadius.circular(25),
       ),
       child: text,
+    ),
+  );
+}
+
+Widget customTextField({
+  BuildContext context,
+  Function onSaved,
+  Function onChanged,
+  String hintText,
+  TextInputType keyboardType,
+  int maxLength,
+}) {
+  return TextFormField(
+    onSaved: onSaved,
+    onChanged: onChanged,
+    maxLength: maxLength,
+    style: Theme.of(context).textTheme.headline1.copyWith(
+          fontSize: 14,
+        ),
+    keyboardType: keyboardType,
+    decoration: InputDecoration(
+      counter: SizedBox(),
+      hintText: tr('$hintText'),
+      hintStyle: Theme.of(context).textTheme.headline5,
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      filled: true,
+      isDense: true,
+      focusColor: Theme.of(context).highlightColor,
+      fillColor: Theme.of(context).highlightColor,
+      hoverColor: Theme.of(context).highlightColor,
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(6),
+      ),
     ),
   );
 }
