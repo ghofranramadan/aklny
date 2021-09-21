@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:aklny/ui/screens/main_screen.dart';
+import 'package:aklny/ui/screens/complete_user_data_screen.dart';
 import 'package:aklny/ui/screens/new_pass_screen.dart';
 import 'package:aklny/utils/components.dart';
 import 'package:aklny/utils/vars.dart';
@@ -233,7 +233,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         ? () => Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return MainScreen();
+                                  return CompleteUserScreen();
                                 },
                               ),
                             )

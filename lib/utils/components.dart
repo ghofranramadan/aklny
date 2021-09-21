@@ -29,6 +29,9 @@ Widget customTextField({
   String hintText,
   TextInputType keyboardType,
   int maxLength,
+  BoxConstraints suffixIconConstraints,
+  Widget suffixIcon,
+  bool obscureText,
 }) {
   return TextFormField(
     onSaved: onSaved,
@@ -39,7 +42,10 @@ Widget customTextField({
         ),
     cursorColor: Theme.of(context).shadowColor,
     keyboardType: keyboardType,
+    obscureText: obscureText ?? false,
     decoration: InputDecoration(
+      suffixIconConstraints: suffixIconConstraints,
+      suffixIcon: suffixIcon,
       counter: SizedBox(),
       hintText: tr('$hintText'),
       hintStyle: Theme.of(context).textTheme.headline5,

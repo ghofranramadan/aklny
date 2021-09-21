@@ -15,13 +15,7 @@ class CreateAccountScreen extends StatefulWidget {
 }
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
-  String pass;
-  String confirmPass;
-  String email;
-  String name;
   String phoneNo;
-  bool showPass = true;
-  bool showConfirmPass = true;
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +43,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
         title: Text(
           tr('create_an_account'),
           style: Theme.of(context).textTheme.headline1.copyWith(
-                fontWeight: FontWeight.w700,
-                fontSize: 22,
+                fontWeight: FontWeight.w400,
+                fontSize: 20,
               ),
         ),
       ),
@@ -64,107 +58,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  // Text(
-                  //   tr('name'),
-                  //   style: Theme.of(context).textTheme.headline2.copyWith(
-                  //         fontWeight: FontWeight.w700,
-                  //         fontSize: 13,
-                  //       ),
-                  // ),
-                  // SizedBox(
-                  //   height: 5,
-                  // ),
-                  // TextFormField(
-                  //   onSaved: (value) {
-                  //     setState(() {
-                  //       name = value;
-                  //     });
-                  //   },
-                  //   onChanged: (value) {
-                  //     setState(() {
-                  //       name = value;
-                  //     });
-                  //   },
-                  //   style: Theme.of(context).textTheme.headline1.copyWith(
-                  //         fontSize: 14,
-                  //       ),
-                  //   decoration: InputDecoration(
-                  //     hintText: tr('name'),
-                  //     hintStyle: Theme.of(context).textTheme.headline5,
-                  //     border: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     filled: true,
-                  //     isDense: true,
-                  //     focusColor: Theme.of(context).highlightColor,
-                  //     fillColor: Theme.of(context).highlightColor,
-                  //     hoverColor: Theme.of(context).highlightColor,
-                  //     enabledBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //   ),
-                  // ),
-                  // SizedBox(
-                  //   height: 20,
-                  // ),
-                  // /////////
-                  // Text(
-                  //   tr('email'),
-                  //   style: Theme.of(context).textTheme.headline2.copyWith(
-                  //         fontWeight: FontWeight.w700,
-                  //         fontSize: 13,
-                  //       ),
-                  // ),
-                  // SizedBox(
-                  //   height: 5,
-                  // ),
-                  // TextFormField(
-                  //   onSaved: (value) {
-                  //     setState(() {
-                  //       email = value;
-                  //     });
-                  //   },
-                  //   onChanged: (value) {
-                  //     setState(() {
-                  //       email = value;
-                  //     });
-                  //   },
-                  //   style: Theme.of(context).textTheme.headline1.copyWith(
-                  //         fontSize: 14,
-                  //       ),
-                  //   decoration: InputDecoration(
-                  //     hintText: tr('email'),
-                  //     hintStyle: Theme.of(context).textTheme.headline5,
-                  //     border: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     filled: true,
-                  //     isDense: true,
-                  //     focusColor: Theme.of(context).highlightColor,
-                  //     fillColor: Theme.of(context).highlightColor,
-                  //     hoverColor: Theme.of(context).highlightColor,
-                  //     enabledBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //   ),
-                  // ),
-                  // SizedBox(
-                  //   height: 20,
-                  // ),
-                  // /////////
-
                   Text(
                     tr('enter_phone_no'),
                     style: Theme.of(context).textTheme.headline2.copyWith(
@@ -234,201 +127,6 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       ),
                     ],
                   ),
-
-                  // TextFormField(
-                  //   onSaved: (value) {
-                  //     setState(() {
-                  //       phoneNo = value;
-                  //     });
-                  //   },
-                  //   onChanged: (value) {
-                  //     setState(() {
-                  //       phoneNo = value;
-                  //     });
-                  //   },
-                  //   style: Theme.of(context).textTheme.headline1.copyWith(
-                  //         fontSize: 14,
-                  //       ),
-                  //   keyboardType: TextInputType.phone,
-                  //   decoration: InputDecoration(
-                  //     hintText: tr('phone_no'),
-                  //     hintStyle: Theme.of(context).textTheme.headline5,
-                  //     border: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     filled: true,
-                  //     isDense: true,
-                  //     focusColor: Theme.of(context).highlightColor,
-                  //     fillColor: Theme.of(context).highlightColor,
-                  //     hoverColor: Theme.of(context).highlightColor,
-                  //     enabledBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //   ),
-                  // ),
-                  // /////////////////////
-                  // SizedBox(
-                  //   height: 20,
-                  // ),
-                  // Text(
-                  //   tr('password'),
-                  //   style: Theme.of(context).textTheme.headline2.copyWith(
-                  //         fontWeight: FontWeight.w700,
-                  //         fontSize: 13,
-                  //       ),
-                  // ),
-                  // SizedBox(
-                  //   height: 5,
-                  // ),
-                  // TextFormField(
-                  //   style: Theme.of(context).textTheme.headline1.copyWith(
-                  //         fontSize: 14,
-                  //       ),
-                  //   obscureText: showPass,
-                  //   keyboardType: TextInputType.text,
-                  //   onSaved: (value) {
-                  //     setState(() {
-                  //       pass = value;
-                  //     });
-                  //   },
-                  //   onChanged: (value) {
-                  //     setState(() {
-                  //       pass = value;
-                  //     });
-                  //   },
-                  //   decoration: InputDecoration(
-                  //     suffixIconConstraints: BoxConstraints(
-                  //       maxHeight: 24,
-                  //       maxWidth: 41,
-                  //     ),
-                  //     suffixIcon: GestureDetector(
-                  //       behavior: HitTestBehavior.opaque,
-                  //       onLongPress: () {
-                  //         setState(() => showPass = false);
-                  //       },
-                  //       onLongPressUp: () {
-                  //         setState(() => showPass = true);
-                  //       },
-                  //       child: Container(
-                  //         padding: EdgeInsets.only(
-                  //           right: GetLAng?.lang == 'en_US' ?? true ? 17 : 0,
-                  //           left: GetLAng?.lang == 'en_US' ?? true ? 0 : 17,
-                  //         ),
-                  //         child: showPass == true
-                  //             ? SvgPicture.asset(
-                  //                 'assets/svg/private.svg',
-                  //               )
-                  //             : SvgPicture.asset(
-                  //                 'assets/svg/view.svg',
-                  //               ),
-                  //       ),
-                  //     ),
-                  //     hintText: tr('password'),
-                  //     hintStyle: Theme.of(context).textTheme.headline5,
-                  //     border: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     filled: true,
-                  //     isDense: true,
-                  //     focusColor: Theme.of(context).highlightColor,
-                  //     fillColor: Theme.of(context).highlightColor,
-                  //     hoverColor: Theme.of(context).highlightColor,
-                  //     enabledBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //   ),
-                  // ),
-                  // //////////////
-                  // SizedBox(
-                  //   height: 20,
-                  // ),
-                  // Text(
-                  //   tr('confirm_password'),
-                  //   style: Theme.of(context).textTheme.headline2.copyWith(
-                  //         fontWeight: FontWeight.w700,
-                  //         fontSize: 13,
-                  //       ),
-                  // ),
-                  // SizedBox(
-                  //   height: 5,
-                  // ),
-                  // TextFormField(
-                  //   style: Theme.of(context).textTheme.headline1.copyWith(
-                  //         fontSize: 14,
-                  //       ),
-                  //   obscureText: showConfirmPass,
-                  //   keyboardType: TextInputType.text,
-                  //   onSaved: (value) {
-                  //     setState(() {
-                  //       confirmPass = value;
-                  //     });
-                  //   },
-                  //   onChanged: (value) {
-                  //     setState(() {
-                  //       confirmPass = value;
-                  //     });
-                  //   },
-                  //   decoration: InputDecoration(
-                  //     suffixIconConstraints: BoxConstraints(
-                  //       maxHeight: 24,
-                  //       maxWidth: 41,
-                  //     ),
-                  //     suffixIcon: GestureDetector(
-                  //       behavior: HitTestBehavior.opaque,
-                  //       onLongPress: () {
-                  //         setState(() => showConfirmPass = false);
-                  //       },
-                  //       onLongPressUp: () {
-                  //         setState(() => showConfirmPass = true);
-                  //       },
-                  //       child: Container(
-                  //         padding: EdgeInsets.only(
-                  //           right: GetLAng?.lang == 'en_US' ?? true ? 17 : 0,
-                  //           left: GetLAng?.lang == 'en_US' ?? true ? 0 : 17,
-                  //         ),
-                  //         child: showConfirmPass == true
-                  //             ? SvgPicture.asset(
-                  //                 'assets/svg/private.svg',
-                  //               )
-                  //             : SvgPicture.asset(
-                  //                 'assets/svg/view.svg',
-                  //               ),
-                  //       ),
-                  //     ),
-                  //     hintText: tr('confirm_password'),
-                  //     hintStyle: Theme.of(context).textTheme.headline5,
-                  //     border: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     filled: true,
-                  //     isDense: true,
-                  //     focusColor: Theme.of(context).highlightColor,
-                  //     fillColor: Theme.of(context).highlightColor,
-                  //     hoverColor: Theme.of(context).highlightColor,
-                  //     enabledBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderSide: BorderSide.none,
-                  //       borderRadius: BorderRadius.circular(6),
-                  //     ),
-                  //   ),
-                  // ),
-                  //////////////
                   SizedBox(
                     height: 28,
                   ),
@@ -650,26 +348,21 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         SizedBox(
                           height: 10,
                         ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: InkWell(
-                            onTap: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return MainScreen();
-                                },
-                              ),
+                        InkWell(
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return MainScreen();
+                              },
                             ),
-                            child: Text(
-                              tr('continue_as_guest'),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline2
-                                  .copyWith(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 14,
-                                  ),
-                            ),
+                          ),
+                          child: Text(
+                            tr('continue_as_guest'),
+                            style:
+                                Theme.of(context).textTheme.headline2.copyWith(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 14,
+                                    ),
                           ),
                         ),
                       ],
