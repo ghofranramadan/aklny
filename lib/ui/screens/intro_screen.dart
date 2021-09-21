@@ -83,7 +83,7 @@ class _IntroScreenState extends State<IntroScreen> {
                         });
                       }),
                   itemCount: welcome.length,
-                  itemBuilder: (BuildContext context, int index) {
+                  itemBuilder: (BuildContext context, int index, int i) {
                     return FittedBox(
                       child: welcome[index],
                     );

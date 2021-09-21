@@ -1,13 +1,13 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:aklny/ui/screens/main_screen.dart';
 import 'package:aklny/ui/screens/new_pass_screen.dart';
-import 'package:aklny/ui/widgets/otp_form.dart';
 import 'package:aklny/utils/vars.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'dart:math' as math;
-import 'package:easy_localization/easy_localization.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpScreen extends StatefulWidget {
   final bool createAccount;
@@ -46,13 +46,20 @@ class _OtpScreenState extends State<OtpScreen> {
       if (_counter > 0) _counter--;
       if (mounted) setState(() {});
     });
+    errorController = StreamController<ErrorAnimationType>();
   }
 
   @override
   void dispose() {
     _timer?.cancel();
+    errorController.close();
     super.dispose();
   }
+
+  TextEditingController textEditingController = TextEditingController();
+  // ..text = "123456";
+  StreamController<ErrorAnimationType> errorController;
+  String currentText = "";
 
   @override
   Widget build(BuildContext context) {
@@ -89,10 +96,11 @@ class _OtpScreenState extends State<OtpScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 271,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
                     child: Text(
                       tr('sent_otp'),
+                      maxLines: 2,
                       style: Theme.of(context).textTheme.headline1.copyWith(
                             fontWeight: FontWeight.w700,
                             fontSize: 22,
@@ -101,12 +109,13 @@ class _OtpScreenState extends State<OtpScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 35,
                   ),
-                  Container(
-                    width: 271,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                      tr('check_number'),
+                      tr('enter_otp'),
+                      maxLines: 2,
                       style: Theme.of(context).textTheme.headline1.copyWith(
                             fontWeight: FontWeight.w300,
                             fontSize: 14,
@@ -118,7 +127,65 @@ class _OtpScreenState extends State<OtpScreen> {
                   SizedBox(
                     height: 30,
                   ),
-                  FittedBox(child: OPTForm()),
+                  PinCodeTextField(
+                    appContext: context,
+                    pastedTextStyle: TextStyle(
+                        color: Colors.transparent,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 50),
+                    length: 6,
+                    obscureText: false,
+                    animationType: AnimationType.fade,
+                    // validator: (v) {
+                    //   if (v.length < 3) {
+                    //     return "I'm from validator";
+                    //   } else {
+                    //     return null;
+                    //   }
+                    // },
+                    pinTheme: PinTheme(
+                      activeColor: Colors.transparent,
+                      inactiveColor: Colors.transparent,
+                      selectedColor: Colors.transparent,
+                      shape: PinCodeFieldShape.box,
+                      borderRadius: BorderRadius.circular(5),
+                      fieldHeight: 60,
+                      fieldWidth: 50,
+                      inactiveFillColor: Colors.grey[100],
+                      activeFillColor:
+                          Theme.of(context).primaryColor.withOpacity(0.7),
+                      selectedFillColor: Colors.grey[100],
+                    ),
+                    cursorColor: Theme.of(context).primaryColor,
+                    animationDuration: Duration(milliseconds: 300),
+                    textStyle: Theme.of(context).textTheme.headline3.copyWith(
+                          fontSize: 20,
+                          height: 1.6,
+                        ),
+                    enableActiveFill: true,
+                    errorAnimationController: errorController,
+                    controller: textEditingController,
+                    keyboardType: TextInputType.number,
+                    // onCompleted: (v) {
+                    //   print("Completed");
+                    // },
+                    // onTap: () {
+                    //   print("Pressed");
+                    // },
+                    onChanged: (value) {
+                      // print(value);
+                      setState(() {
+                        currentText = value;
+                      });
+                    },
+                    beforeTextPaste: (text) {
+                      print("Allowing to paste $text");
+                      //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                      //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                      return true;
+                    },
+                  ),
+                  // FittedBox(child: OPTForm()),
                   SizedBox(
                     height: (MediaQuery.of(context).size.height * 43) / 812,
                   ),
