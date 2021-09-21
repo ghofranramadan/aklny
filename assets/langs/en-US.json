@@ -26,6 +26,7 @@
   "continue_with":"Continue With",
   "continue_as_guest":"Continue As Guest",
   "continue": "Continue",
+  "verify_continue": "verify & continue",
   "reset_password":"Reset Password",
   "reset":"Please Enter Your Phone Number To Receive A Code To  Create A New Password",
   "send": "Send",

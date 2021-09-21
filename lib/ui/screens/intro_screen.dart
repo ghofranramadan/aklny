@@ -1,4 +1,4 @@
-import 'package:aklny/ui/screens/create_account_screen.dart';
+import 'package:aklny/ui/screens/signup_screen.dart';
 import 'package:aklny/ui/widgets/onboarding_widget.dart';
 import 'package:aklny/utils/components.dart';
 import 'package:carousel_slider/carousel_slider.dart';

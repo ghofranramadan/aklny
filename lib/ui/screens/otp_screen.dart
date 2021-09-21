@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:aklny/ui/screens/main_screen.dart';
 import 'package:aklny/ui/screens/new_pass_screen.dart';
+import 'package:aklny/utils/components.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -224,46 +225,30 @@ class _OtpScreenState extends State<OtpScreen> {
             child: IntrinsicHeight(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Expanded(
-                    child: SizedBox(),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: GestureDetector(
-                      onTap: widget.createAccount == true
-                          ? () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return MainScreen();
-                                  },
-                                ),
-                              )
-                          : () => Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return NewPassScreen();
-                                  },
-                                ),
+                  customButton(
+                    context: context,
+                    onTap: widget.createAccount == true
+                        ? () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return MainScreen();
+                                },
                               ),
-                      behavior: HitTestBehavior.opaque,
-                      child: Container(
-                        alignment: Alignment.center,
-                        margin: EdgeInsets.only(
-                          bottom:
-                              (MediaQuery.of(context).size.height * 45) / 812,
-                        ),
-                        height: (MediaQuery.of(context).size.height * 53) / 812,
-                        width: (MediaQuery.of(context).size.width * 258) / 375,
-                        decoration: BoxDecoration(
-                          color:
-                              Theme.of(context).primaryColor.withOpacity(0.65),
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        child: Text(tr('next'),
-                            style: Theme.of(context).textTheme.headline3),
-                      ),
-                    ),
+                            )
+                        : () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return NewPassScreen();
+                                },
+                              ),
+                            ),
+                    text: Text(tr('verify_continue'),
+                        style: Theme.of(context).textTheme.headline3),
+                  ),
+                  SizedBox(
+                    height: (MediaQuery.of(context).size.height * 35) / 812,
                   ),
                 ],
               ),

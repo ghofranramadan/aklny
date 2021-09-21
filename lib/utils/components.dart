@@ -37,26 +37,33 @@ Widget customTextField({
     style: Theme.of(context).textTheme.headline1.copyWith(
           fontSize: 14,
         ),
+    cursorColor: Theme.of(context).shadowColor,
     keyboardType: keyboardType,
     decoration: InputDecoration(
       counter: SizedBox(),
       hintText: tr('$hintText'),
       hintStyle: Theme.of(context).textTheme.headline5,
       border: OutlineInputBorder(
-        borderSide: BorderSide.none,
+        borderSide: BorderSide(
+          color: Theme.of(context).primaryColor,
+        ),
         borderRadius: BorderRadius.circular(6),
       ),
       filled: true,
       isDense: true,
-      focusColor: Theme.of(context).highlightColor,
-      fillColor: Theme.of(context).highlightColor,
-      hoverColor: Theme.of(context).highlightColor,
+      focusColor: Colors.transparent,
+      fillColor: Colors.transparent,
+      hoverColor: Colors.transparent,
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide.none,
+        borderSide: BorderSide(
+          color: Theme.of(context).primaryColor,
+        ),
         borderRadius: BorderRadius.circular(6),
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide.none,
+        borderSide: BorderSide(
+          color: Theme.of(context).primaryColor,
+        ),
         borderRadius: BorderRadius.circular(6),
       ),
     ),
