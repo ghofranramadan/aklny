@@ -136,13 +136,6 @@ class _OtpScreenState extends State<OtpScreen> {
                     length: 6,
                     obscureText: false,
                     animationType: AnimationType.fade,
-                    // validator: (v) {
-                    //   if (v.length < 3) {
-                    //     return "I'm from validator";
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
                     pinTheme: PinTheme(
                       activeColor: Colors.transparent,
                       inactiveColor: Colors.transparent,
@@ -166,14 +159,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     errorAnimationController: errorController,
                     controller: textEditingController,
                     keyboardType: TextInputType.number,
-                    // onCompleted: (v) {
-                    //   print("Completed");
-                    // },
-                    // onTap: () {
-                    //   print("Pressed");
-                    // },
                     onChanged: (value) {
-                      // print(value);
                       setState(() {
                         currentText = value;
                       });
@@ -185,7 +171,6 @@ class _OtpScreenState extends State<OtpScreen> {
                       return true;
                     },
                   ),
-                  // FittedBox(child: OPTForm()),
                   SizedBox(
                     height: (MediaQuery.of(context).size.height * 43) / 812,
                   ),
