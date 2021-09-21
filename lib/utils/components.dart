@@ -1,5 +1,9 @@
+import 'dart:math' as math;
+
+import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 Widget customButton({
   BuildContext context,
@@ -72,6 +76,41 @@ Widget customTextField({
         ),
         borderRadius: BorderRadius.circular(6),
       ),
+    ),
+  );
+}
+
+Widget customAppBar({
+  BuildContext context,
+  String text,
+  String svg,
+}) {
+  return AppBar(
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    elevation: 0,
+    leading: InkWell(
+      onTap: () {
+        Navigator.of(context).pop();
+      },
+      child: Transform.rotate(
+        angle: GetLAng?.lang == 'en_US' ?? true ? 180 * math.pi / 180 : 0,
+        child: Container(
+          alignment: Alignment.center,
+          height: (MediaQuery.of(context).size.height * 48) / 812,
+          width: (MediaQuery.of(context).size.width * 48) / 375,
+          child: SvgPicture.asset(
+            '$svg',
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+      ),
+    ),
+    title: Text(
+      tr('$text'),
+      style: Theme.of(context).textTheme.headline1.copyWith(
+            fontWeight: FontWeight.w400,
+            fontSize: 20,
+          ),
     ),
   );
 }

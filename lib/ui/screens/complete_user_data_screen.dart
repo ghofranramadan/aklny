@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:aklny/ui/screens/main_screen.dart';
 import 'package:aklny/utils/components.dart';
 import 'package:aklny/utils/vars.dart';
@@ -31,33 +29,10 @@ class _CompleteUserScreenState extends State<CompleteUserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 0,
-        leading: InkWell(
-          onTap: () {
-            Navigator.of(context).pop();
-          },
-          child: Transform.rotate(
-            angle: GetLAng?.lang == 'en_US' ?? true ? 180 * math.pi / 180 : 0,
-            child: Container(
-              alignment: Alignment.center,
-              height: (MediaQuery.of(context).size.height * 48) / 812,
-              width: (MediaQuery.of(context).size.width * 48) / 375,
-              child: SvgPicture.asset(
-                'assets/svg/Arrow - Left Circle.svg',
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-          ),
-        ),
-        title: Text(
-          tr('complete_data'),
-          style: Theme.of(context).textTheme.headline1.copyWith(
-                fontWeight: FontWeight.w400,
-                fontSize: 20,
-              ),
-        ),
+      appBar: customAppBar(
+        context: context,
+        svg: 'assets/svg/Arrow - Left Circle.svg',
+        text: 'complete_data',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(

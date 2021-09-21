@@ -229,21 +229,15 @@ class _OtpScreenState extends State<OtpScreen> {
                 children: <Widget>[
                   customButton(
                     context: context,
-                    onTap: widget.createAccount == true
-                        ? () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return CompleteUserScreen();
-                                },
-                              ),
-                            )
-                        : () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return NewPassScreen();
-                                },
-                              ),
-                            ),
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return widget.createAccount == true
+                              ? CompleteUserScreen()
+                              : NewPassScreen();
+                        },
+                      ),
+                    ),
                     text: Text(tr('verify_continue'),
                         style: Theme.of(context).textTheme.headline3),
                   ),
