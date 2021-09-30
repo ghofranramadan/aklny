@@ -10,7 +10,7 @@ class AklnyTheme {
     primaryColor: Color(0xFFFC6011),
     shadowColor: Color(0xFF4A4B4D),
     buttonColor: Color(0xFF4267B2),
-    indicatorColor: Color(0xFFFFFFFF),
+    indicatorColor: Color(0xFFB6B7B7),
     highlightColor: Color(0xFFFC6011).withOpacity(0.20),
     hintColor: Color(0xFFDE4D3B),
     cardColor: Color(0xFFF2F2F2),

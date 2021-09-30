@@ -1,3 +1,4 @@
+import 'package:aklny/provider/auth_provider.dart';
 import 'package:aklny/ui/screens/splash_screen.dart';
 import 'package:aklny/utils/theme.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -30,26 +31,37 @@ void main() async {
 class Aklny extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Aklny',
-      theme: AklnyTheme().lightTheme,
-      home: SplashScreen(),
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      builder: (context, widget) => ResponsiveWrapper.builder(
-        BouncingScrollWrapper.builder(context, widget),
-        maxWidth: 1200,
-        minWidth: 400,
-        defaultScale: true,
-        breakpoints: [
-          ResponsiveBreakpoint.autoScale(800, name: TABLET),
-          ResponsiveBreakpoint.autoScale(1000, name: TABLET),
-          ResponsiveBreakpoint.resize(450, name: MOBILE),
-          ResponsiveBreakpoint.resize(1200, name: DESKTOP),
-          ResponsiveBreakpoint.autoScale(2460, name: "4K"),
-        ],
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AuthProvider>(
+          create: (context) => AuthProvider(),
+        ),
+      ],
+      child: Consumer<AuthProvider>(
+        builder: (BuildContext context, AuthProvider auth, Widget child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Aklny',
+            theme: AklnyTheme().lightTheme,
+            home: SplashScreen(),
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            builder: (context, widget) => ResponsiveWrapper.builder(
+              BouncingScrollWrapper.builder(context, widget),
+              maxWidth: 1200,
+              minWidth: 400,
+              defaultScale: true,
+              breakpoints: [
+                ResponsiveBreakpoint.autoScale(800, name: TABLET),
+                ResponsiveBreakpoint.autoScale(1000, name: TABLET),
+                ResponsiveBreakpoint.resize(450, name: MOBILE),
+                ResponsiveBreakpoint.resize(1200, name: DESKTOP),
+                ResponsiveBreakpoint.autoScale(2460, name: "4K"),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

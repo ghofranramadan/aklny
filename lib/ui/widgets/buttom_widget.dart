@@ -26,8 +26,8 @@ class BottomWidget extends StatelessWidget {
               width: 24,
               height: 24,
               color: selected == true
-                  ? Theme.of(context).indicatorColor
-                  : Theme.of(context).shadowColor,
+                  ? Theme.of(context).primaryColor.withOpacity(0.8)
+                  : Theme.of(context).indicatorColor,
             ),
             SizedBox(
               height: 5,
@@ -35,11 +35,11 @@ class BottomWidget extends StatelessWidget {
             Text(
               '$title',
               style: selected == true
-                  ? Theme.of(context).textTheme.headline3.copyWith(
+                  ? Theme.of(context).textTheme.headline4.copyWith(
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
                       )
-                  : Theme.of(context).textTheme.headline1.copyWith(
+                  : Theme.of(context).textTheme.headline6.copyWith(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
                       ),
