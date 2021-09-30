@@ -15,17 +15,17 @@ class _IntroScreenState extends State<IntroScreen> {
   CarouselController buttonCarouselController = CarouselController();
   List<Widget> welcome = [
     OnBoarding(
-      picture: 'assets/svg/Find food you love vector.svg',
-      title: 'find_food_you_love',
+      picture: 'assets/images/Group 10596.png',
+      title: 'best_offers',
       subTitle: 'discover',
     ),
     OnBoarding(
-      picture: 'assets/svg/Delivery vector.svg',
-      title: 'fast_delivery',
+      picture: 'assets/images/Group 784.png',
+      title: 'electronic_payment',
       subTitle: 'delivery',
     ),
     OnBoarding(
-      picture: 'assets/svg/Live tracking vector.svg',
+      picture: 'assets/images/MOTO.png',
       title: 'live_tracking',
       subTitle: 'tracking',
     ),
@@ -43,30 +43,36 @@ class _IntroScreenState extends State<IntroScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            if (indicatorIndex == 0)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  InkWell(
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return CreateAccountScreen();
-                        },
+            indicatorIndex == 0
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      InkWell(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return CreateAccountScreen();
+                            },
+                          ),
+                        ),
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: (MediaQuery.of(context).size.width * 80) / 375,
+                          child: Text(
+                            tr('skip'),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline1
+                                .copyWith(
+                                    fontSize: 20, fontWeight: FontWeight.w300),
+                          ),
+                        ),
                       ),
-                    ),
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: (MediaQuery.of(context).size.width * 80) / 375,
-                      child: Text(
-                        tr('skip'),
-                        style: Theme.of(context).textTheme.headline1.copyWith(
-                            fontSize: 20, fontWeight: FontWeight.w300),
-                      ),
-                    ),
+                    ],
+                  )
+                : SizedBox(
+                    height: 15,
                   ),
-                ],
-              ),
             Stack(
               children: [
                 CarouselSlider.builder(
@@ -92,7 +98,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 Positioned(
                   left: 0,
                   right: 0,
-                  top: MediaQuery.of(context).size.height * 0.55,
+                  top: MediaQuery.of(context).size.height * 0.57,
                   child: DotsIndicator(
                     dotsCount: welcome.length,
                     mainAxisSize: MainAxisSize.max,

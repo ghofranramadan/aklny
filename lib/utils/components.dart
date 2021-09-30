@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flrx_validator/flrx_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +19,7 @@ Widget customButton({
       height: (MediaQuery.of(context).size.height * 53) / 812,
       width: (MediaQuery.of(context).size.width * 258) / 375,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor.withOpacity(0.65),
+        color: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.circular(25),
       ),
       child: text,
@@ -29,6 +30,7 @@ Widget customButton({
 Widget customTextField({
   BuildContext context,
   Function onSaved,
+  Validator validator,
   Function onChanged,
   String hintText,
   TextInputType keyboardType,
@@ -40,6 +42,7 @@ Widget customTextField({
   return TextFormField(
     onSaved: onSaved,
     onChanged: onChanged,
+    validator: validator,
     maxLength: maxLength,
     style: Theme.of(context).textTheme.headline1.copyWith(
           fontSize: 14,

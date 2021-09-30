@@ -35,7 +35,7 @@ class BNBCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint_0 = new Paint()
-      ..color = Theme.of(context).primaryColor.withOpacity(0.8)
+      ..color = Theme.of(context).backgroundColor
       ..style = PaintingStyle.fill
       ..strokeWidth = 1.0;
 

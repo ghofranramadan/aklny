@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="145.296" height="143.096"
+     viewBox="0 0 145.296 143.096">
+    <defs>
+        <clipPath id="clip-path">
+            <rect id="Mask-2" width="144.296" height="142.096" rx="71.048" transform="translate(0.352)" fill="none"/>
+        </clipPath>
+        <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#e2fbff"/>
+            <stop offset="1" stop-color="#ffe2cf"/>
+        </linearGradient>
+        <clipPath id="clip-path-2">
+            <path id="Combined_Shape"
+                  d="M15.006,63.837v.2q-.081,6.249-10.535,9.4c8.4,6.092,16.8,10.965,25.193,10.965s16.792-4.879,25.192-10.97q-10.383-3.152-10.533-9.41c0-.744.006-1.8.01-3.783v-.968c.5.071.46.026,0-.1.014-5.217.036-12.233.067-19.362,6.565-8.487,4.153-18.438,2.1-18.189C43.976,21.92,22.125,1.243,17.934.185S3.1,2.546,1.264,12.085s-2.6,33.577,4.351,43.174q2.966,4.1,9.343,3.2c.006,2,.018,3.116.047,5.377Z"
+                  transform="translate(54.856 84.974) rotate(180)" fill="none"/>
+        </clipPath>
+        <linearGradient id="linear-gradient-2" x1="0.5" y1="1.178" x2="0.688" y2="-0.178"
+                        gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#353b50"/>
+            <stop offset="1" stop-color="#232439"/>
+        </linearGradient>
+        <clipPath id="clip-path-3">
+            <path id="Combined_Shape-2"
+                  d="M102.7,17.014c4.345,8.827,6.846,29.186,6.846,29.186H0S2.5,25.839,6.846,17.014,36.559,0,36.559,0c4.89,10.032,31.725,10.031,36.41,0C72.969,0,98.35,8.186,102.7,17.014Z"
+                  fill="none"/>
+        </clipPath>
+    </defs>
+    <g id="Group_4526" transform="translate(0.148 0.5)">
+        <g id="Group">
+            <path id="Path_2803-2"
+                  d="M72.5,0C112.541,0,145,31.788,145,71s-32.459,71-72.5,71S0,110.212,0,71,32.459,0,72.5,0Z"
+                  fill="#fff"/>
+        </g>
+        <g id="Group_30" opacity="0.139">
+            <g id="Path_7">
+                <rect id="Mask-3" width="144.296" height="142.096" rx="71.048" transform="translate(0.352)"
+                      fill="rgba(53,59,80,0.99)" stroke="rgba(53,59,80,0)" stroke-miterlimit="10" stroke-width="1"/>
+                <g id="Path_7-2_Clipped" data-name="Path_7-2 Clipped">
+                    <rect id="Mask-2-2" data-name="Mask-2" width="144.296" height="142.096" rx="71.048"
+                          transform="translate(0.352)" fill="none"/>
+                    <g id="Path_7-2_Clipped-2" data-name="Path_7-2 Clipped" clip-path="url(#clip-path)">
+                        <g id="Path_7-2" transform="translate(17 24)">
+                            <g id="User_07a" transform="translate(0.729 0.851)">
+                                <g id="Group_10" transform="translate(17.203)">
+                                    <g id="Group_11">
+                                        <g id="Group_11-2" transform="translate(65.111 93) rotate(180)">
+                                            <g id="Group_2">
+                                                <g id="Group_14">
+                                                    <g id="Path_48" transform="translate(2.29 0.69)">
+                                                        <path id="Combined_Shape-3"
+                                                              d="M15.006,63.837v.2q-.081,6.249-10.535,9.4c8.4,6.092,16.8,10.965,25.193,10.965s16.792-4.879,25.192-10.97q-10.383-3.152-10.533-9.41c0-.744.006-1.8.01-3.783v-.968c.5.071.46.026,0-.1.014-5.217.036-12.233.067-19.362,6.565-8.487,4.153-18.438,2.1-18.189C43.976,21.92,22.125,1.243,17.934.185S3.1,2.546,1.264,12.085s-2.6,33.577,4.351,43.174q2.966,4.1,9.343,3.2c.006,2,.018,3.116.047,5.377Z"
+                                                              transform="translate(54.856 84.974) rotate(180)"
+                                                              fill="url(#linear-gradient)"/>
+                                                        <g id="Path_48-2_Clipped" data-name="Path_48-2 Clipped">
+                                                            <path id="Combined_Shape-2-2" data-name="Combined_Shape"
+                                                                  d="M15.006,63.837v.2q-.081,6.249-10.535,9.4c8.4,6.092,16.8,10.965,25.193,10.965s16.792-4.879,25.192-10.97q-10.383-3.152-10.533-9.41c0-.744.006-1.8.01-3.783v-.968c.5.071.46.026,0-.1.014-5.217.036-12.233.067-19.362,6.565-8.487,4.153-18.438,2.1-18.189C43.976,21.92,22.125,1.243,17.934.185S3.1,2.546,1.264,12.085s-2.6,33.577,4.351,43.174q2.966,4.1,9.343,3.2c.006,2,.018,3.116.047,5.377Z"
+                                                                  transform="translate(54.856 84.974) rotate(180)"
+                                                                  fill="none"/>
+                                                            <g id="Path_48-2_Clipped-2" data-name="Path_48-2 Clipped"
+                                                               clip-path="url(#clip-path-2)">
+                                                                <g id="Path_48-2" transform="translate(23 21)">
+                                                                    <path id="Path_48-3"
+                                                                          d="M0,5.482A39.793,39.793,0,0,0,16.49,0S9.555,9.191,0,10.965Z"
+                                                                          transform="translate(16.851 11.003) rotate(180)"
+                                                                          fill="#ffbe94" opacity="0.228"/>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                    <path id="Path_22"
+                                                          d="M55.11,47.109c3.156-7.571,15.8-22.988,4.9-32.583C56.347-3.292,36.1-1.319,22.588,2.792,13.506,5.556,6.648,11.016,5.182,6.9-3.979,14.526.609,21.981,6.648,24.121,12.13,26.063,21.4,28,37.16,26.177c2.815-.326,2.226,8.273,3.73,9.2,2.257,1.4,4.009-7.375,10.2-4.742s2.516,14.844-4.126,14.844c-2.29,0-3.435,6.28,2.748,9.25C54.194,56.932,53.06,52.028,55.11,47.109Z"
+                                                          transform="translate(64.5 92.823) rotate(180)"
+                                                          fill="url(#linear-gradient-2)"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                                <g id="Group_21" transform="translate(0 78.376)">
+                                    <path id="Combined_Shape-4"
+                                          d="M102.7,17.014c4.345,8.827,6.846,29.186,6.846,29.186H0S2.5,25.839,6.846,17.014,36.559,0,36.559,0c4.89,10.032,31.725,10.031,36.41,0C72.969,0,98.35,8.186,102.7,17.014Z"
+                                          fill="#fff"/>
+                                    <g id="Group_21-2_Clipped" data-name="Group_21-2 Clipped">
+                                        <path id="Combined_Shape-2-3" data-name="Combined_Shape-2"
+                                              d="M102.7,17.014c4.345,8.827,6.846,29.186,6.846,29.186H0S2.5,25.839,6.846,17.014,36.559,0,36.559,0c4.89,10.032,31.725,10.031,36.41,0C72.969,0,98.35,8.186,102.7,17.014Z"
+                                              fill="none"/>
+                                        <g id="Group_21-2_Clipped-2" data-name="Group_21-2 Clipped"
+                                           clip-path="url(#clip-path-3)">
+                                            <g id="Group_21-2" transform="translate(-5 15)">
+                                                <path id="Combined_Shape-5"
+                                                      d="M0,21.89V18.241H118.67V21.89Zm0-9.121V9.121H118.67v3.65ZM0,3.649V0H118.67V3.649Z"
+                                                      transform="translate(0.436 0.049)" fill="#353b50"/>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

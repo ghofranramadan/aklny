@@ -4,6 +4,8 @@ import 'package:aklny/ui/screens/otp_screen.dart';
 import 'package:aklny/utils/components.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flrx_validator/flrx_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,7 +15,169 @@ class CreateAccountScreen extends StatefulWidget {
 }
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey();
+  final FirebaseAuth auth = FirebaseAuth.instance;
   String phoneNo;
+  bool showLoading = false;
+  String verificationId;
+  Future<void> _submit() async {
+    if (!_formKey.currentState.validate()) {
+      return;
+    } else {
+      _formKey.currentState.save();
+      try {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => OtpScreen(
+              createAccount: true,
+            ),
+          ),
+        );
+
+        // setState(() {
+        //   showLoading = true;
+        // });
+        // ////////////////////////////////////////////
+        // await auth.verifyPhoneNumber(
+        //   phoneNumber: phoneNo,
+        //   verificationCompleted: (phoneAuthCredential) async {
+        //     setState(() {
+        //       showLoading = false;
+        //     });
+        //     //signInWithPhoneAuthCredential(phoneAuthCredential);
+        //   },
+        //   verificationFailed: (verificationFailed) async {
+        //     setState(() {
+        //       showLoading = false;
+        //     });
+        //     Fluttertoast.showToast(
+        //         msg: "${verificationFailed.message}",
+        //         toastLength: Toast.LENGTH_LONG,
+        //         gravity: ToastGravity.BOTTOM,
+        //         timeInSecForIosWeb: 5,
+        //         backgroundColor: Colors.red,
+        //         textColor: Colors.white,
+        //         fontSize: 16.0);
+        //   },
+        //   codeSent: (verificationId, resendingToken) async {
+        //     setState(() {
+        //       showLoading = false;
+        //       this.verificationId = verificationId;
+        //     });
+        //     Navigator.of(context).push(
+        //       MaterialPageRoute(
+        //         builder: (context) => OtpScreen(
+        //           createAccount: true,
+        //         ),
+        //       ),
+        //     );
+        //   },
+        //   codeAutoRetrievalTimeout: (verificationId) async {},
+        // );
+        ////////////////////////////////////////////
+        // await context.read<AuthProvider>().signup(
+        //     UserModel(
+        //       name: _name,
+        //       type: '',
+        //       number: _phone,
+        //       address: _address,
+        //       companyName: _companyName,
+        //       email: _email,
+        //       imagePath: '',
+        //       imageUrl: '',
+        //     ),
+        //     _password);
+        // setState(() {
+        //   showLoading = false;
+        // });
+        // Navigator.of(context).push(
+        //   MaterialPageRoute(
+        //     builder: (context) => OtpScreen(
+        //       createAccount: true,
+        //     ),
+        //   ),
+        // );
+        // Navigator.of(context).pushReplacement(
+        //   MaterialPageRoute(builder: (context) =>  OtpScreen(
+        //                 createAccount: true,
+        //               ),),
+        // );
+      }
+      // on FirebaseAuthException catch (e, s) {
+      //   Navigator.of(context).pop();
+      //   print(' error ${e.code}');
+      //   if (e.code == 'email-already-in-use') {
+      //     print(' error ${e.code}');
+      //     // Alert(
+      //     //   context: context,
+      //     //   title: 'Email Already in use!',
+      //     //   buttons: [
+      //     //     DialogButton(
+      //     //       color: Color(0xff055261),
+      //     //       child: Text(
+      //     //         'Okay',
+      //     //         style: TextStyle(
+      //     //           fontFamily: 'SF Pro Display',
+      //     //           fontSize: 16,
+      //     //           color: const Color(0xffb9cc66),
+      //     //           fontWeight: FontWeight.w600,
+      //     //         ),
+      //     //         textAlign: TextAlign.center,
+      //     //       ),
+      //     //       onPressed: () => Navigator.of(context).pop(),
+      //     //     ),
+      //     //   ],
+      //     // ).show();
+      //   } else if (e.code == 'invalid-email') {
+      //     print(' error ${e.code}');
+      //     // Alert(
+      //     //   context: context,
+      //     //   title: 'please enter correct email.',
+      //     //   buttons: [
+      //     //     DialogButton(
+      //     //       color: Color(0xff055261),
+      //     //       child: Text(
+      //     //         'Okay',
+      //     //         style: TextStyle(
+      //     //           fontFamily: 'SF Pro Display',
+      //     //           fontSize: 16,
+      //     //           color: const Color(0xffb9cc66),
+      //     //           fontWeight: FontWeight.w600,
+      //     //         ),
+      //     //         textAlign: TextAlign.center,
+      //     //       ),
+      //     //       onPressed: () => Navigator.of(context).pop(),
+      //     //     ),
+      //     //   ],
+      //     // ).show();
+      //   }
+      // }
+      catch (e) {
+        print(' error ${e.toString()}');
+        // Navigator.of(context).pop();
+        // Alert(
+        //   context: context,
+        //   title: 'something wrong happened, please try again',
+        //   buttons: [
+        //     DialogButton(
+        //       color: Color(0xff055261),
+        //       child: Text(
+        //         'Okay',
+        //         style: TextStyle(
+        //           fontFamily: 'SF Pro Display',
+        //           fontSize: 16,
+        //           color: const Color(0xffb9cc66),
+        //           fontWeight: FontWeight.w600,
+        //         ),
+        //         textAlign: TextAlign.center,
+        //       ),
+        //       onPressed: () => Navigator.of(context).pop(),
+        //     ),
+        //   ],
+        // ).show();
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,132 +195,140 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
         child: CustomScrollView(
           slivers: <Widget>[
             SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  Text(
-                    tr('enter_phone_no'),
-                    style: Theme.of(context).textTheme.headline2.copyWith(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20,
-                        ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Text(
-                      tr('sign_up_intro'),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      style: Theme.of(context).textTheme.headline5.copyWith(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 13,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    Text(
+                      tr('enter_phone_no'),
+                      style: Theme.of(context).textTheme.headline2.copyWith(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 20,
                           ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 46,
-                        width: 50,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                          border: Border.all(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        child: Text(
-                          '+2',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline1
-                              .copyWith(fontSize: 14),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Expanded(
-                        child: customTextField(
-                          context: context,
-                          onSaved: (value) {
-                            setState(() {
-                              phoneNo = value;
-                            });
-                          },
-                          onChanged: (value) {
-                            setState(() {
-                              phoneNo = value;
-                            });
-                          },
-                          hintText: 'phone_no',
-                          keyboardType: TextInputType.phone,
-                          maxLength: 11,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 28,
-                  ),
-                  customButton(
-                    context: context,
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return OtpScreen(
-                            createAccount: true,
-                          );
-                        },
-                      ),
+                    SizedBox(
+                      height: 10,
                     ),
-                    text: Text(tr('continue'),
-                        style: Theme.of(context).textTheme.headline3),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        tr("i_have_an_account"),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Text(
+                        tr('sign_up_intro'),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
                         style: Theme.of(context).textTheme.headline5.copyWith(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 13,
                             ),
                       ),
-                      SizedBox(
-                        width: (MediaQuery.of(context).size.width * 4) / 375,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return LoginScreen();
-                              },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 46,
+                          width: 50,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            border: Border.all(
+                              color: Theme.of(context).primaryColor,
                             ),
-                          );
-                        },
-                        behavior: HitTestBehavior.opaque,
-                        child: Text(
-                          tr('login'),
-                          style: Theme.of(context).textTheme.headline4.copyWith(
-                                fontWeight: FontWeight.w700,
+                          ),
+                          child: Text(
+                            '+2',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline1
+                                .copyWith(fontSize: 14),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Expanded(
+                          child: customTextField(
+                            validator: Validator(
+                              rules: [
+                                RequiredRule(
+                                    validationMessage:
+                                        'Phone number is required'),
+                                MinLengthRule(11,
+                                    validationMessage:
+                                        'Phone number is 11 number'),
+                              ],
+                            ),
+                            context: context,
+                            onSaved: (value) {
+                              setState(() {
+                                phoneNo = value;
+                              });
+                            },
+                            onChanged: (value) {
+                              setState(() {
+                                phoneNo = value;
+                              });
+                            },
+                            hintText: 'phone_no',
+                            keyboardType: TextInputType.phone,
+                            maxLength: 11,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 28,
+                    ),
+                    showLoading
+                        ? CircularProgressIndicator()
+                        : customButton(
+                            context: context,
+                            onTap: () => _submit(),
+                            text: Text(tr('continue'),
+                                style: Theme.of(context).textTheme.headline3),
+                          ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          tr("i_have_an_account"),
+                          style: Theme.of(context).textTheme.headline5.copyWith(
+                                fontWeight: FontWeight.w500,
                                 fontSize: 12,
                               ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        SizedBox(
+                          width: (MediaQuery.of(context).size.width * 4) / 375,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return LoginScreen();
+                                },
+                              ),
+                            );
+                          },
+                          behavior: HitTestBehavior.opaque,
+                          child: Text(
+                            tr('login'),
+                            style:
+                                Theme.of(context).textTheme.headline4.copyWith(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 12,
+                                    ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             SliverFillRemaining(

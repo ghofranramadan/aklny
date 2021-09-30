@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class OnBoarding extends StatelessWidget {
   final String picture;
@@ -12,11 +11,13 @@ class OnBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset(
+        Image.asset(
           '$picture',
+          height: MediaQuery.of(context).size.height * 0.5,
+          fit: BoxFit.contain,
         ),
         SizedBox(
-          height: (MediaQuery.of(context).size.height * 45) / 812,
+          height: (MediaQuery.of(context).size.height * 100) / 812,
         ),
         Text(
           tr('$title'),
@@ -26,7 +27,7 @@ class OnBoarding extends StatelessWidget {
               fontWeight: FontWeight.w700),
         ),
         SizedBox(
-          height: (MediaQuery.of(context).size.height * 30) / 812,
+          height: (MediaQuery.of(context).size.height * 20) / 812,
         ),
         Container(
           width: 275,

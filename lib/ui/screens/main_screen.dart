@@ -9,6 +9,7 @@ import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -43,10 +44,16 @@ class _MainScreenState extends State<MainScreen> {
         height: 80,
         child: Stack(
           children: [
-            CustomPaint(
-              size: Size(size.width, 80),
-              painter: BNBCustomPainter(
-                context: context,
+            SimpleShadow(
+              opacity: 0.8,
+              color: Theme.of(context).indicatorColor,
+              offset: Offset(-1, -5),
+              sigma: 7,
+              child: CustomPaint(
+                size: Size(size.width, 80),
+                painter: BNBCustomPainter(
+                  context: context,
+                ),
               ),
             ),
             Center(
@@ -62,12 +69,12 @@ class _MainScreenState extends State<MainScreen> {
                   width: 70,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Theme.of(context).primaryColor.withOpacity(0.8)),
+                      color: selectedIndex == 2
+                          ? Theme.of(context).primaryColor.withOpacity(0.8)
+                          : Theme.of(context).indicatorColor),
                   child: SvgPicture.asset(
                     "assets/svg/shopping-cart.svg",
-                    color: selectedIndex == 2
-                        ? Theme.of(context).indicatorColor
-                        : Theme.of(context).shadowColor,
+                    color: Color(0xFFFFFFFF),
                     width: 32,
                     height: 32,
                   ),
@@ -75,10 +82,11 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             Container(
+              margin: EdgeInsets.symmetric(horizontal: 15),
               width: size.width,
               height: 80,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   BottomWidget(
                     svgPic: 'assets/svg/house.svg',
@@ -93,7 +101,7 @@ class _MainScreenState extends State<MainScreen> {
                     selected: selectedIndex == 1 ? true : false,
                     padding: EdgeInsets.only(
                       right: GetLAng?.lang == 'en_US' ?? true ? 100 : 40,
-                      left: GetLAng?.lang == 'en_US' ?? true ? 20 : 0,
+                      left: GetLAng?.lang == 'en_US' ?? true ? 20 : 40,
                     ),
                   ),
                   BottomWidget(
@@ -102,7 +110,7 @@ class _MainScreenState extends State<MainScreen> {
                     onTap: () => selectedTab(3),
                     selected: selectedIndex == 3 ? true : false,
                     padding: EdgeInsets.only(
-                      left: GetLAng?.lang == 'en_US' ?? true ? 0 : 0,
+                      left: GetLAng?.lang == 'en_US' ?? true ? 0 : 45,
                       right: GetLAng?.lang == 'en_US' ?? true ? 40 : 80,
                     ),
                   ),

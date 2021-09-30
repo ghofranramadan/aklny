@@ -14,8 +14,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   String pass;
-  String phoneNo;
+  // String phoneNo;
   bool showPass = true;
+  String email;
   bool rememberMe = false;
 
   @override
@@ -61,49 +62,64 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 46,
-                        width: 50,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                          border: Border.all(
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        child: Text(
-                          '+2',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline1
-                              .copyWith(fontSize: 14),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Expanded(
-                        child: customTextField(
-                          context: context,
-                          onSaved: (value) {
-                            setState(() {
-                              phoneNo = value;
-                            });
-                          },
-                          onChanged: (value) {
-                            setState(() {
-                              phoneNo = value;
-                            });
-                          },
-                          hintText: 'phone_no',
-                          keyboardType: TextInputType.phone,
-                          maxLength: 11,
-                        ),
-                      ),
-                    ],
+                  // Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     Container(
+                  //       height: 46,
+                  //       width: 50,
+                  //       alignment: Alignment.center,
+                  //       decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(6),
+                  //         border: Border.all(
+                  //           color: Theme.of(context).primaryColor,
+                  //         ),
+                  //       ),
+                  //       child: Text(
+                  //         '+2',
+                  //         style: Theme.of(context)
+                  //             .textTheme
+                  //             .headline1
+                  //             .copyWith(fontSize: 14),
+                  //       ),
+                  //     ),
+                  //     SizedBox(
+                  //       width: 15,
+                  //     ),
+                  //     Expanded(
+                  //       child: customTextField(
+                  //         context: context,
+                  //         onSaved: (value) {
+                  //           setState(() {
+                  //             phoneNo = value;
+                  //           });
+                  //         },
+                  //         onChanged: (value) {
+                  //           setState(() {
+                  //             phoneNo = value;
+                  //           });
+                  //         },
+                  //         hintText: 'phone_no',
+                  //         keyboardType: TextInputType.phone,
+                  //         maxLength: 11,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  customTextField(
+                    context: context,
+                    onSaved: (value) {
+                      setState(() {
+                        email = value;
+                      });
+                    },
+                    onChanged: (value) {
+                      setState(() {
+                        email = value;
+                      });
+                    },
+                    hintText: 'email',
+                    keyboardType: TextInputType.emailAddress,
                   ),
                   SizedBox(
                     height: 15,

@@ -7,11 +7,11 @@ class AklnyTheme {
     brightness: Brightness.light,
     scaffoldBackgroundColor: Color(0xFFFFFFFF),
     backgroundColor: Color(0xFFFFFFFF),
-    primaryColor: Color(0xFFFC6011),
+    primaryColor: Color(0xFF667EEA),
     shadowColor: Color(0xFF4A4B4D),
     buttonColor: Color(0xFF4267B2),
-    indicatorColor: Color(0xFFFFFFFF),
-    highlightColor: Color(0xFFFC6011).withOpacity(0.20),
+    indicatorColor: Color(0xFFB6B7B7),
+    highlightColor: Color(0xFF667EEA).withOpacity(0.20),
     hintColor: Color(0xFFDE4D3B),
     cardColor: Color(0xFFF2F2F2),
     textTheme: TextTheme(
@@ -31,7 +31,7 @@ class AklnyTheme {
         fontSize: 18,
       ),
       headline4: TextStyle(
-        color: Color(0xFFFC6011).withOpacity(0.65),
+        color: Color(0xFF667EEA).withOpacity(0.65),
         fontWeight: FontWeight.w700,
         fontSize: 18,
       ),
