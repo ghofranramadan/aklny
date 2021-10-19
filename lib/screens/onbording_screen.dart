@@ -1,6 +1,6 @@
-import 'package:aklny/ui/screens/signup_screen.dart';
-import 'package:aklny/ui/widgets/onboarding_widget.dart';
+import 'package:aklny/screens/signup_screen.dart';
 import 'package:aklny/utils/components.dart';
+import 'package:aklny/widgets/onboarding_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:easy_localization/easy_localization.dart';

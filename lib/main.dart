@@ -1,12 +1,14 @@
-import 'package:aklny/provider/auth_provider.dart';
-import 'package:aklny/ui/screens/splash_screen.dart';
+import 'package:aklny/screens/splash_screen.dart';
 import 'package:aklny/utils/theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
+
+import 'bloc/categories_bloc/categories_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,37 +35,33 @@ void main() async {
 class Aklny extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiBlocProvider(
       providers: [
-        ChangeNotifierProvider<AuthProvider>(
-          create: (context) => AuthProvider(),
-        ),
+        BlocProvider<CategoriesBloc>(
+          create: (context) => CategoriesBloc(),
+        )
       ],
-      child: Consumer<AuthProvider>(
-        builder: (BuildContext context, AuthProvider auth, Widget child) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Aklny',
-            theme: AklnyTheme().lightTheme,
-            home: SplashScreen(),
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            builder: (context, widget) => ResponsiveWrapper.builder(
-              BouncingScrollWrapper.builder(context, widget),
-              maxWidth: 1200,
-              minWidth: 400,
-              defaultScale: true,
-              breakpoints: [
-                ResponsiveBreakpoint.autoScale(800, name: TABLET),
-                ResponsiveBreakpoint.autoScale(1000, name: TABLET),
-                ResponsiveBreakpoint.resize(450, name: MOBILE),
-                ResponsiveBreakpoint.resize(1200, name: DESKTOP),
-                ResponsiveBreakpoint.autoScale(2460, name: "4K"),
-              ],
-            ),
-          );
-        },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Aklny',
+        theme: AklnyTheme().lightTheme,
+        home: SplashScreen(),
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        builder: (context, widget) => ResponsiveWrapper.builder(
+          BouncingScrollWrapper.builder(context, widget),
+          maxWidth: 1200,
+          minWidth: 400,
+          defaultScale: true,
+          breakpoints: [
+            ResponsiveBreakpoint.autoScale(800, name: TABLET),
+            ResponsiveBreakpoint.autoScale(1000, name: TABLET),
+            ResponsiveBreakpoint.resize(450, name: MOBILE),
+            ResponsiveBreakpoint.resize(1200, name: DESKTOP),
+            ResponsiveBreakpoint.autoScale(2460, name: "4K"),
+          ],
+        ),
       ),
     );
   }
