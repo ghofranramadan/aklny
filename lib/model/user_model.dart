@@ -17,7 +17,7 @@ class UserModel {
     this.img,
   });
 
-  UserModel.fromMap(
+  UserModel.fromJson(
     Map<String, dynamic> json,
   ) {
     firstName = json["firstName"];

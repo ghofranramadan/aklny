@@ -26,7 +26,7 @@ class BottomWidget extends StatelessWidget {
               width: 24,
               height: 24,
               color: selected == true
-                  ? Theme.of(context).primaryColor.withOpacity(0.8)
+                  ? Theme.of(context).primaryColor
                   : Theme.of(context).indicatorColor,
             ),
             SizedBox(

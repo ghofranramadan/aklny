@@ -1,4 +1,4 @@
-import 'package:aklny/ui/screens/onbording_screen.dart';
+import 'package:aklny/screens/onbording_screen.dart';
 import 'package:aklny/utils/components.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/src/public_ext.dart';

@@ -1,3 +1,5 @@
+import 'package:aklny/api/api_connect.dart';
+import 'package:aklny/bloc/config_bloc/config_bloc.dart';
 import 'package:aklny/screens/splash_screen.dart';
 import 'package:aklny/utils/theme.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -12,7 +14,7 @@ import 'bloc/categories_bloc/categories_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  ApiProvider.int();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
@@ -39,7 +41,10 @@ class Aklny extends StatelessWidget {
       providers: [
         BlocProvider<CategoriesBloc>(
           create: (context) => CategoriesBloc(),
-        )
+        ),
+        BlocProvider<ConfigBloc>(
+          create: (context) => ConfigBloc(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

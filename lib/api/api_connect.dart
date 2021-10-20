@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-class ShopAppApiProvider {
+class ApiProvider {
   static Dio dio;
 
   static int() {
@@ -21,6 +21,8 @@ class ShopAppApiProvider {
     responseBody: true,
     error: true,
   );
+  static bool validResponse(var statusCode) =>
+      statusCode >= 200 && statusCode < 300;
 
   static Map<String, dynamic> _apiHeaders = <String, dynamic>{
     'Content-Type': 'application/json',

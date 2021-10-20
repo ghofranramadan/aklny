@@ -1,7 +1,7 @@
 ///This class will contain all end-points and methods used to get data from an API
 class API {
   ///USER APIs
-  static const String LOGIN = "/user/login";
+  static const String BANNERS = "banners";
 
   ///Authentication APIs
 

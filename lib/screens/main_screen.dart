@@ -39,6 +39,7 @@ class _MainScreenState extends State<MainScreen> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: _buildScreens[selectedIndex],
+      extendBody: true,
       bottomNavigationBar: Container(
         width: size.width,
         height: 80,

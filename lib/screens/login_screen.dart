@@ -1,6 +1,6 @@
-import 'package:aklny/ui/screens/forgot_pass_screen.dart';
-import 'package:aklny/ui/screens/main_screen.dart';
-import 'package:aklny/ui/screens/signup_screen.dart';
+import 'package:aklny/screens/forgot_pass_screen.dart';
+import 'package:aklny/screens/main_screen.dart';
+import 'package:aklny/screens/signup_screen.dart';
 import 'package:aklny/utils/components.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/easy_localization.dart';

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:aklny/ui/screens/complete_user_data_screen.dart';
-import 'package:aklny/ui/screens/new_pass_screen.dart';
+import 'package:aklny/screens/complete_user_data_screen.dart';
+import 'package:aklny/screens/new_pass_screen.dart';
 import 'package:aklny/utils/components.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/easy_localization.dart';

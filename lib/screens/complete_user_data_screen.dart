@@ -1,4 +1,4 @@
-import 'package:aklny/ui/screens/main_screen.dart';
+import 'package:aklny/screens/main_screen.dart';
 import 'package:aklny/utils/components.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:easy_localization/easy_localization.dart';
