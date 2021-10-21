@@ -2,6 +2,7 @@
 class API {
   ///USER APIs
   static const String BANNERS = "banners";
+  static const String CATEGORIES = "categories";
 
   ///Authentication APIs
 

@@ -1,3 +1,4 @@
+import 'package:aklny/api/api.dart';
 import 'package:aklny/api/api_connect.dart';
 import 'package:aklny/model/banner_model.dart';
 import 'package:bloc/bloc.dart';
@@ -21,7 +22,7 @@ class ConfigBloc extends Bloc<ConfigEvent, ConfigState> {
     try {
       yield BannersLoading();
       banners = [];
-      var response = await ApiProvider.getApiData(url: 'banners');
+      var response = await ApiProvider.getApiData(url: '${API.BANNERS}');
       if (ApiProvider.validResponse(response.statusCode)) {
         response.data["data"].forEach((e) {
           banners.add(BannerModel.fromJson(e));

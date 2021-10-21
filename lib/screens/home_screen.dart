@@ -1,8 +1,11 @@
+import 'package:aklny/bloc/categories_bloc/categories_bloc.dart';
 import 'package:aklny/bloc/config_bloc/config_bloc.dart';
 import 'package:aklny/model/banner_model.dart';
+import 'package:aklny/model/categories_model.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     BlocProvider.of<ConfigBloc>(context).add(FetchBanners());
+    BlocProvider.of<CategoriesBloc>(context).add(FetchCategories());
     super.initState();
   }
 
@@ -169,28 +173,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  // SizedBox(
-                  //   height: 30,
-                  // ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     Text(
-                  //       'Explore By Category',
-                  //       style: Theme.of(context).textTheme.headline2.copyWith(
-                  //             fontWeight: FontWeight.w700,
-                  //             fontSize: 16,
-                  //           ),
-                  //     ),
-                  //     Text(
-                  //       'View all',
-                  //       style: Theme.of(context).textTheme.headline4.copyWith(
-                  //             fontWeight: FontWeight.w500,
-                  //             fontSize: 13,
-                  //           ),
-                  //     ),
-                  //   ],
-                  // ),
                   SizedBox(
                     height: 15,
                   ),
@@ -256,9 +238,87 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     },
                   ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        tr('categories'),
+                        style: Theme.of(context).textTheme.headline2.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                            ),
+                      ),
+                      Text(
+                        tr('see_all'),
+                        style: Theme.of(context).textTheme.headline4.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 13,
+                            ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
+            BlocConsumer<CategoriesBloc, CategoriesState>(
+              listener: (context, state) {},
+              builder: (context, state) {
+                if (state is CategoriesLoading) {
+                  return Center(child: const CircularProgressIndicator());
+                } else if (state is CategoriesSuccess) {
+                  List<DataOfCategory> categories =
+                      state.category.data.dataOfCategory;
+                  return Container(
+                    height: 160,
+                    child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: categories.length,
+                        padding: EdgeInsets.only(
+                          // top: 10,
+                          bottom: 32,
+                          right: GetLAng?.lang == 'en_US' ?? true ? 0 : 22,
+                          left: GetLAng?.lang == 'en_US' ?? true ? 22 : 0,
+                        ),
+                        separatorBuilder: (BuildContext context, int index) {
+                          return SizedBox(
+                            width: 10,
+                          );
+                        },
+                        itemBuilder: (BuildContext context, int index) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image(
+                                image: NetworkImage(
+                                  "${categories[index].image}",
+                                ),
+                                width: 150,
+                                height: 100,
+                              ),
+                              Spacer(),
+                              Text(
+                                "${categories[index].name}",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline1
+                                    .copyWith(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                    ),
+                              ),
+                            ],
+                          );
+                        }),
+                  );
+                } else {
+                  return Center(child: Text("Error"));
+                }
+              },
+            ),
+
             // Container(
             //   height: 150,
             //   child: ListView.builder(
