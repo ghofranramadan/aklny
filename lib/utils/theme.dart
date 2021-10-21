@@ -13,7 +13,7 @@ class AklnyTheme {
     indicatorColor: Color(0xFFB6B7B7),
     highlightColor: Color(0xFF667EEA).withOpacity(0.50),
     hintColor: Color(0xFFDE4D3B),
-    cardColor: Color(0xFFF2F2F2),
+    cardColor: Color(0xFF667EEA).withOpacity(0.15),
     textTheme: TextTheme(
       headline1: TextStyle(
         color: Color(0xFF4A4B4D),

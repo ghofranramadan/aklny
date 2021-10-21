@@ -36,7 +36,9 @@ Widget customTextField({
   TextInputType keyboardType,
   int maxLength,
   BoxConstraints suffixIconConstraints,
+  BoxConstraints prefixIconConstraints,
   Widget suffixIcon,
+  Widget prefixIcon,
   bool obscureText,
 }) {
   return TextFormField(
@@ -51,22 +53,24 @@ Widget customTextField({
     keyboardType: keyboardType,
     obscureText: obscureText ?? false,
     decoration: InputDecoration(
+      prefixIconConstraints: prefixIconConstraints,
       suffixIconConstraints: suffixIconConstraints,
       suffixIcon: suffixIcon,
+      prefixIcon: prefixIcon,
       counter: SizedBox(),
       hintText: tr('$hintText'),
       hintStyle: Theme.of(context).textTheme.headline5,
+      filled: true,
+      isDense: true,
+      focusColor: Colors.transparent,
+      fillColor: Colors.transparent,
+      hoverColor: Colors.transparent,
       border: OutlineInputBorder(
         borderSide: BorderSide(
           color: Theme.of(context).primaryColor,
         ),
         borderRadius: BorderRadius.circular(6),
       ),
-      filled: true,
-      isDense: true,
-      focusColor: Colors.transparent,
-      fillColor: Colors.transparent,
-      hoverColor: Colors.transparent,
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
           color: Theme.of(context).primaryColor,
