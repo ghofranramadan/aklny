@@ -56,6 +56,7 @@ class _IntroScreenState extends State<IntroScreen> {
                           ),
                         ),
                         child: Container(
+                          height: 30,
                           alignment: Alignment.center,
                           width: (MediaQuery.of(context).size.width * 80) / 375,
                           child: Text(

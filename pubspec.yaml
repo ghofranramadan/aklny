@@ -33,13 +33,16 @@ dependencies:
   dots_indicator: ^2.0.0
   carousel_slider: ^4.0.0
   drawerbehavior: ^2.2.1
+  flutter_advanced_drawer: ^1.2.4
   bloc: ^7.2.1
   flutter_bloc: ^7.3.1
-  dio: ^4.0.0
+  dio: ^4.0.1
   pretty_dio_logger: ^1.1.1
   dio_firebase_performance: ^0.3.0
   flrx_validator: ^0.5.0
-  fluttertoast: ^8.0.7
+  fluttertoast: ^8.0.8
+
+
 
   #firebase
   firebase_core: ^1.7.0

@@ -1,8 +1,8 @@
 import 'package:aklny/screens/cart_screen.dart';
 import 'package:aklny/screens/categories_screen.dart';
 import 'package:aklny/screens/home_screen.dart';
+import 'package:aklny/screens/more_screen.dart';
 import 'package:aklny/screens/offers_screen.dart';
-import 'package:aklny/screens/profile_screen.dart';
 import 'package:aklny/utils/vars.dart';
 import 'package:aklny/widgets/buttom_widget.dart';
 import 'package:aklny/widgets/custom_paint_shape.dart';
@@ -24,7 +24,8 @@ class _MainScreenState extends State<MainScreen> {
     CategoriesScreen(),
     CartScreen(),
     OffersScreen(),
-    ProfileScreen(),
+    MoreScreen(),
+    // ProfileScreen(),
   ];
 
   void selectedTab(int index) {

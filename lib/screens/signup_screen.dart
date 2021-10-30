@@ -503,13 +503,18 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               },
                             ),
                           ),
-                          child: Text(
-                            tr('continue_as_guest'),
-                            style:
-                                Theme.of(context).textTheme.headline2.copyWith(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 14,
-                                    ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              tr('continue_as_guest'),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline2
+                                  .copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14,
+                                  ),
+                            ),
                           ),
                         ),
                       ],
