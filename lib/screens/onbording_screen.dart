@@ -41,7 +41,6 @@ class _IntroScreenState extends State<IntroScreen> {
           top: (MediaQuery.of(context).size.height * 35) / 812,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             indicatorIndex == 0
                 ? Row(
@@ -72,7 +71,7 @@ class _IntroScreenState extends State<IntroScreen> {
                     ],
                   )
                 : SizedBox(
-                    height: 15,
+                    height: 30,
                   ),
             Stack(
               children: [
@@ -91,15 +90,13 @@ class _IntroScreenState extends State<IntroScreen> {
                       }),
                   itemCount: welcome.length,
                   itemBuilder: (BuildContext context, int index, int i) {
-                    return FittedBox(
-                      child: welcome[index],
-                    );
+                    return welcome[index];
                   },
                 ),
                 Positioned(
                   left: 0,
                   right: 0,
-                  top: MediaQuery.of(context).size.height * 0.57,
+                  top: MediaQuery.of(context).size.height * 0.56,
                   child: DotsIndicator(
                     dotsCount: welcome.length,
                     mainAxisSize: MainAxisSize.max,
@@ -117,6 +114,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 ),
               ],
             ),
+            Spacer(),
             indicatorIndex == 0 || indicatorIndex == 1
                 ? customButton(
                     context: context,

@@ -32,7 +32,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
         //   banners.add(BannerModel.fromJson(e));
         // });
         categories = CategoryModel.formJson(response.data);
-        print(response.data);
+        // print(response.data);
 
         yield CategoriesSuccess(category: categories);
       } else {

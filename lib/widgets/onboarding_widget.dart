@@ -6,7 +6,11 @@ class OnBoarding extends StatelessWidget {
   final String title;
   final String subTitle;
 
-  OnBoarding({this.picture, this.title, this.subTitle});
+  OnBoarding({
+    this.picture,
+    this.title,
+    this.subTitle,
+  });
   @override
   Widget build(BuildContext context) {
     return Column(

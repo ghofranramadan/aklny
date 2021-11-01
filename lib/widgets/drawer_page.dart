@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class DrawerPage extends StatelessWidget {
   final VoidCallback openDrawer;
+  final Widget widget;
 
-  DrawerPage({@required this.openDrawer});
+  DrawerPage({@required this.openDrawer, @required this.widget});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +28,8 @@ class DrawerPage extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                 ],
-              )
+              ),
+              Center(child: widget)
             ],
           ),
         ),
